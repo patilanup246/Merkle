@@ -1,0 +1,166 @@
+USE [CRM]
+GO
+/****** Object:  StoredProcedure [PreProcessing].[STG_SalesDetail_Insert]    Script Date: 01/08/2018 09:21:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [PreProcessing].[STG_SalesDetail_Insert]
+(
+	@userid                INTEGER = 0,
+	@dataimportdetailid    INTEGER
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+	DECLARE @now                    DATETIME
+	DECLARE @successcountimport     INTEGER = 0
+	DECLARE @errorcountimport       INTEGER = 0
+
+	DECLARE @informationsourceid    INTEGER
+	DECLARE @TransactionStatusID    INT
+
+	DECLARE @spname                 NVARCHAR(256)
+	DECLARE @recordcount            INTEGER       = 0
+	DECLARE @logtimingidnew         INTEGER
+	DECLARE @logmessage             NVARCHAR(MAX)
+
+	SELECT @spname = OBJECT_SCHEMA_NAME(@@PROCID) + '.' + OBJECT_NAME(@@PROCID)
+
+	--Log start time--
+
+	EXEC [Operations].[LogTiming_Record] @userid         = @userid,
+	                                     @logsource      = @spname,
+										 @logtimingidnew = @logtimingidnew OUTPUT
+
+
+    SELECT @InformationSourceID = InformationSourceID
+	FROM Reference.InformationSource 
+	WHERE [Name] = 'TrainLine'
+
+	IF @informationsourceid IS NULL
+	BEGIN
+	    SET @logmessage = 'No or invalid @informationsourceid; @informationsourceid = ' + ISNULL(@informationsourceid,'NULL');
+	    
+		EXEC [Operations].[LogMessage_Record] @userid          = @userid,
+		                                      @logsource       = @spname,
+											  @logmessage      = @logmessage,
+											  @logmessagelevel = 'ERROR',
+											  @messagetypecd   = 'Invalid Lookup';
+		THROW 51403, @logmessage,1;	
+    END
+
+    SELECT @now = GETDATE()
+
+    EXEC [Operations].[DataImportDetail_Update] @userid                 = @userid,
+	                                            @dataimportdetailid     = @dataimportdetailid,
+	                                            @operationalstatusname  = 'Processing',
+	                                            @starttimepreprocessing = NULL,
+	                                            @endtimepreprocessing   = NULL,
+	                                            @starttimeimport        = @now,
+	                                            @endtimeimport          = NULL,
+	                                            @totalcountimport       = NULL,
+	                                            @successcountimport     = NULL,
+	                                            @errorcountimport       = NULL
+
+
+    INSERT INTO [Staging].[STG_SalesDetail]
+           ([Name]
+           ,[Description]
+           ,[CreatedDate]
+           ,[CreatedBy]
+           ,[LastModifiedDate]
+           ,[LastModifiedBy]
+           ,[ArchivedInd]
+           ,[SalesTransactionID]
+           ,[ProductID]
+		   ,[Quantity]
+		   ,[UnitPrice]
+           ,[SalesAmount]
+           ,[IsTrainTicketInd]
+           ,[RailcardTypeID]
+           ,[ExtReference]
+           ,[InformationSourceID]
+		   ,[FulfilmentMethodID]
+           ,[TransactionStatusID]
+		   ,[OutTravelDate]
+		   ,[ReturnTravelDate])
+     SELECT NULL
+           ,NULL
+           ,GETDATE()
+           ,@userid
+           ,GETDATE()
+           ,@userid
+           ,0
+           ,a.SalesTransactionID
+           ,c.ProductID
+		   ,b.Quantity
+		   ,b.PricePerUnit
+           ,b.BaseAmount
+           ,CASE c.ProductTypeCode WHEN 4 THEN 1 ELSE 0 END
+           ,d.RailcardTypeID
+           ,CAST(b.SalesOrderDetailID AS NVARCHAR(256))
+           ,@informationsourceid
+		   ,f.FulfilmentMethodID
+           ,e.[TransactionStatusID]
+		   ,Staging.SetUKTime(b.out_traveldate)
+		   ,Staging.SetUKTime(b.out_returndate)
+    FROM   [Staging].[STG_SalesTransaction] a
+	INNER JOIN [PreProcessing].[MSD_SalesOrderDetail] b ON a.[Extreference] = CAST(b.SalesOrderId AS NVARCHAR(256))
+	INNER JOIN [Reference].[MSD_Product] c ON c.ProductIdMSD = b.ProductId
+	LEFT  JOIN [Reference].[RailcardType] d On d.ExtReference = b.out_RailCardType
+	LEFT JOIN  [Reference].[TransactionStatus] e ON e.ExtReference = CAST(b.out_Status AS NVARCHAR(256))
+	LEFT JOIN  [Reference].[FulfilmentMethod] f ON f.ExtReference = b.out_deliverymethod
+											  AND  f.InformationSourceID = @informationsourceid
+	LEFT JOIN  [Staging].[STG_SalesDetail] g ON g.ExtReference = CAST(b.SalesOrderDetailId AS NVARCHAR(256))
+	WHERE g.ExtReference IS NULL
+	AND   b.DataImportDetailID = @dataimportdetailid
+	AND   b.ProcessedInd = 0
+
+	UPDATE B
+	SET  B.ProcessedInd = 1
+	FROM [PreProcessing].TOCPLUS_Bookings AS B 
+	INNER JOIN  [Staging].[STG_SalesDetail] AS SD ON B.purchaseid = SD.ExtReference
+	AND   B.DataImportDetailID = @dataimportdetailid
+		
+	SELECT @successcountimport = COUNT(1)
+    FROM   PreProcessing.TOCPLUS_Bookings
+	WHERE  ProcessedInd = 1
+	AND    DataImportDetailID = @dataimportdetailid
+
+	SELECT @errorcountimport = COUNT(1)
+	FROM   PreProcessing.TOCPLUS_Bookings
+	WHERE  ProcessedInd = 0
+	AND    DataImportDetailID = @dataimportdetailid
+
+	SELECT @recordcount = @successcountimport + @errorcountimport
+
+	SELECT @now = GETDATE()
+
+    EXEC [Operations].[DataImportDetail_Update] @userid						= @userid,
+	                                            @dataimportdetailid			= @dataimportdetailid,
+	                                            @operationalstatusname		= 'Completed',
+	                                            @starttimepreprocessing     = NULL,
+	                                            @endtimepreprocessing		= NULL,
+	                                            @starttimeimport			= NULL,
+	                                            @endtimeimport				= @now,
+	                                            @totalcountimport			= @recordcount,
+	                                            @successcountimport			= @successcountimport,
+	                                            @errorcountimport			= @errorcountimport
+
+
+    --Log end time
+
+	EXEC [Operations].[LogTiming_Record] @userid         = @userid,
+	                                     @logsource      = @spname,
+										 @logtimingid    = @logtimingidnew,
+										 @recordcount    = @recordcount,
+										 @logtimingidnew = @logtimingidnew OUTPUT
+	RETURN 
+END
+
+
+
+

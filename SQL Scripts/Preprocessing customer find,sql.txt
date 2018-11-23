@@ -1,0 +1,54 @@
+select *
+from PreProcessing.TOCPLUS_Customer as c1
+inner join PreProcessing.TOCPLUS_Customer as c2
+	on c1.postcode = c2 .postcode
+	and c1.forename = c2.forename
+	and c1.surname = c2.surname
+	and c1.TCScustomerID <> c2.TCScustomerID
+	and c1.postcode <> '' 
+
+--EMAIL ADDRESS
+SELECT *
+FROM PreProcessing.TOCPLUS_Customer 
+WHERE emailaddress = 'SARAH.DWERRYHOUSE@YAHOO.CO.UK'
+
+SELECT *
+FROM PreProcessing.TOCPLUS_Customer 
+WHERE emailaddress = 'PMARKBRASSINGTON@HOTMAIL.COM'
+
+--MOBILE PHONE
+SELECT MobileTelephoneNo,*
+FROM PreProcessing.TOCPLUS_Customer
+WHERE MobileTelephoneNo = '07914337066'
+
+SELECT MobileTelephoneNo,*
+FROM PreProcessing.TOCPLUS_Customer
+WHERE MobileTelephoneNo = '07704795495'
+
+SELECT MobileTelephoneNo,*
+FROM PreProcessing.TOCPLUS_Customer
+WHERE MobileTelephoneNo = '07885029346'
+
+
+SELECT MobileTelephoneNo,*
+FROM PreProcessing.TOCPLUS_Customer
+WHERE MobileTelephoneNo = '07946538547'
+
+SELECT MobileTelephoneNo,*
+FROM PreProcessing.TOCPLUS_Customer
+WHERE MobileTelephoneNo = '07981164475'
+
+--NAMAD
+SELECT *
+FROM PreProcessing.TOCPLUS_Customer
+WHERE postcode = 'B17 0HT'
+AND forename = 'John'
+
+SELECT *
+FROM PreProcessing.TOCPLUS_Customer
+WHERE postcode = 'WV1 3EG'
+AND forename = 'Hannah'
+
+
+
+
