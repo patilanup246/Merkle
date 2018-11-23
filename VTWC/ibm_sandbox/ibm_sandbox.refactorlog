@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="f26926a7-5323-4153-8f67-839522012698" ChangeDateTime="08/08/2018 14:57:23">
+    <Property Name="ElementName" Value="[dbo].[crm_fallow_group].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[crm_fallow_group]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Customer_ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="beb6f497-b00a-40d4-99f9-8bb7cda4d099" ChangeDateTime="08/14/2018 17:15:14">
+    <Property Name="ElementName" Value="[CRM].[Retention_RAG].[LessFreqRoute_LastTravelled]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[CRM].[Retention_RAG]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LessFreqRoute_TimesTravelled" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a6f18015-229d-4cdd-a680-fbdb73c56934" ChangeDateTime="09/04/2018 16:24:59">
+    <Property Name="ElementName" Value="[CRM].[crm_fallow_group]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[CRM]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[CRMFallowGroup]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="28f5e431-4c38-4173-9dd3-3d88e010f920" ChangeDateTime="09/26/2018 09:38:55">
+    <Property Name="ElementName" Value="[CRM].[Blacklist].[ParsedEmail]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[CRM].[Blacklist]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParsedAddress" />
+  </Operation>
+</Operations>

@@ -1,0 +1,1041 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/24/2018 9:45:04 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CL-RDSAPP1"
+  DTS:CreatorName="PCLC0\nbutler"
+  DTS:DTSID="{A48EF1B4-8ABD-4270-BBB0-094F64770ABE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="VTWC_PackageWrapper 2"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{AFB7AE23-6BF3-4DC0-B7B3-8F71080E36C5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3AFA8998-B161-4CA8-9CB2-9674652A322C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::PcvPathFolder] + &quot;Error&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExpPathErrorFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\aew1vtwcsql90.pclc0.merkle.local\data\Error</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A830EDD-3A4C-4AA6-A9FC-AABE858125D5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::PcvPathFolder]  +  &quot;Process&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExpPathProcessFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\aew1vtwcsql90.pclc0.merkle.local\data\Process</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{684A067A-C541-4496-A83A-F17AC1C5642E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IcvClientName">
+      <DTS:VariableValue
+        DTS:DataType="8">VTWC</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B20928E8-E31B-4838-8091-CAF98FD88AC7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vCurrentPackage">
+      <DTS:VariableValue
+        DTS:DataType="8">VTWC_PackageWrapper</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{44D9E8ED-703C-4FD6-9C2A-C67C66F85166}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vCurrentPackageEnabled">
+      <DTS:VariableValue
+        DTS:DataType="8">Y</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9AD4273E-CEB6-420F-9600-4C2EE81D1231}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vCurrentPackageGenericLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">N</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B1B2AF01-FC6D-434F-AAE2-50B86D28BA4B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="vPkgExecKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EST Execute Customer Refresh"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{12723CE5-2842-4217-9BF3-3321B719D58E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST Execute Customer Refresh"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1084B2DD-6898-4583-94E8-8A8B611C5447}"
+          SQLTask:SqlStatementSource="EXEC [Production].[Customer_Refresh] 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST Insert PkgExecution row"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9139BD98-1902-4350-BA8D-D8EBE1155FDB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST Insert PkgExecution row"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6CFA7D57-193B-4D61-8702-10CD359D478E}"
+          SQLTask:SqlStatementSource="INSERT INTO AuditPkgExecution (&#xA;PkgName, PkgGUID, PkgVersionGUID, PkgVersionMajor, PkgVersionMinor, PkgVersionBuild, ExecStartDT, ParentPkgExecKey)&#xA;Values (@PkgName, @PkgGUID, @PkgVersionGUID, @PkgVersionMajor, @PkgVersionMinor, @PkgVersionBuild, @ExecStartDT, -1)&#xA;&#xA;SELECT CAST(SCOPE_IDENTITY()  As Int)"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::vPkgExecKey" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@PkgName"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@PkgGUID"
+            SQLTask:DtsVariableName="System::PackageID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="9"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@PkgVersionGUID"
+            SQLTask:DtsVariableName="System::VersionGUID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="9"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@PkgVersionMajor"
+            SQLTask:DtsVariableName="System::VersionMajor"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@PkgVersionMinor"
+            SQLTask:DtsVariableName="System::VersionMinor"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@ExecStartDT"
+            SQLTask:DtsVariableName="System::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="6"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@PkgVersionBuild"
+            SQLTask:DtsVariableName="System::VersionBuild"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST Update PkgExecution"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{68D80C63-76F8-4796-A1EF-BC77FA62D189}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST Update PkgExecution"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6CFA7D57-193B-4D61-8702-10CD359D478E}"
+          SQLTask:SqlStatementSource="UPDATE AuditPkgExecution&#xA;SET ExecStopDT = GETDATE(),&#xA; SuccessFlag = 'Y'   &#xA;WHERE PkgExecKey = @PkgExecKey" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@PkgExecKey"
+            SQLTask:DtsVariableName="User::vPkgExecKey"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FLC Loop Through Packages"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{5258493D-A2D5-47AF-AF68-047CB190D5D8}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FLC Loop Through Packages">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachItemEnumerator"
+        DTS:DTSID="{0D2D703C-C042-4042-B1E2-7758AF9A91BF}"
+        DTS:ObjectName="{0B00FD82-13C5-48B2-A22D-9B7FFB204F96}">
+        <DTS:ObjectData>
+          <FEIEItems>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Customer.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Fallow_Groups.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_Adobe_CRM_Broadlog.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_Adobe_CRM_Delivery.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_Adobe_CRM_Extension.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_Adobe_CRM_Trackinglog.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Transactions.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Bookings.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Journey.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Journey_Leg.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Legs.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Rail_Supplements.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Rail_Refunds.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCPlus_Traveller.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+          </FEIEItems>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FLC Loop Through Packages\EPT Package Execution"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{0BCF3969-D3B7-4668-9EA8-FACE3A85C280}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT Package Execution"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="PackageName">@[User::vCurrentPackage]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>VTWC_PackageWrapper</PackageName>
+              <ParameterAssignment>
+                <ParameterName>PcvParentPkgExecKey</ParameterName>
+                <BindedVariableOrParameterName>User::vPkgExecKey</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{9C5C30A2-8F2B-42C0-9172-3D5F253A7F96}"
+          DTS:ObjectName="{9C5C30A2-8F2B-42C0-9172-3D5F253A7F96}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::vCurrentPackage" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{0EFACBF8-9D35-4084-908C-CAFEA392524C}"
+          DTS:ObjectName="{0EFACBF8-9D35-4084-908C-CAFEA392524C}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::vCurrentPackageEnabled" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{548E1F4F-A98D-453D-A338-41C6B148BA0F}"
+          DTS:ObjectName="{548E1F4F-A98D-453D-A338-41C6B148BA0F}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::vCurrentPackageGenericLocation" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FST Create Error folder if Not exists"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{1D92D68E-0E0F-4C25-A3C0-6717A88E5081}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FST Create Error folder if Not exists"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::ExpPathErrorFolder"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FST Create Process folder if Not exists"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{3DFDE04E-FDCF-44EE-BB26-CCF191B27BAF}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FST Create Process folder if Not exists"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::ExpPathProcessFolder"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SFTP To S3 and DataBridgeDownload Loop Packages"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{48F5ADAA-5E83-46F4-81FC-0AED1E6D4B84}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SFTP To S3 and DataBridgeDownload Loop Packages">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachItemEnumerator"
+        DTS:DTSID="{4A747B4C-6427-410E-A003-2392A49EEF5B}"
+        DTS:ObjectName="{0B00FD82-13C5-48B2-A22D-9B7FFB204F96}">
+        <DTS:ObjectData>
+          <FEIEItems>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_TOCDownload_From_SFTP_S3.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="VTWC_AdobeDownload_From_SFTP_S3.dtsx" />
+              <FEIEItemValue
+                Type="8"
+                Value="Y" />
+              <FEIEItemValue
+                Type="8"
+                Value="N" />
+            </FEIEItem>
+          </FEIEItems>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SFTP To S3 and DataBridgeDownload Loop Packages\EPT Package Execution"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{BDFB18F1-8773-4ED2-B224-B490E85C9752}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT Package Execution"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="PackageName">@[User::vCurrentPackage]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>VTWC_PackageWrapper</PackageName>
+              <ParameterAssignment>
+                <ParameterName>PcvParentPkgExecKey</ParameterName>
+                <BindedVariableOrParameterName>User::vPkgExecKey</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{0EB9013E-8884-4B13-B42B-197B79594E98}"
+          DTS:ObjectName="{0EB9013E-8884-4B13-B42B-197B79594E98}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::vCurrentPackage" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{0FA3A368-6452-4A59-B9B5-808648D2472C}"
+          DTS:ObjectName="{0FA3A368-6452-4A59-B9B5-808648D2472C}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::vCurrentPackageEnabled" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{08B90B14-59E5-421C-95FF-6DEE3DD90C71}"
+          DTS:ObjectName="{08B90B14-59E5-421C-95FF-6DEE3DD90C71}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::vCurrentPackageGenericLocation" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Execute Pre Load Wrapper"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{86D04D56-E621-4964-BC8E-C57407C24F8B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Execute Pre Load Wrapper"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6CFA7D57-193B-4D61-8702-10CD359D478E}"
+          SQLTask:IsStoredProc="True"
+          SQLTask:SqlStatementSource="uspSSISPreLoadWrapper" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="PkgExecKey"
+            SQLTask:DtsVariableName="User::vPkgExecKey"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E6E7680A-35D7-4BED-A0D4-2823ECF0BF47}"
+      DTS:From="Package\EST Insert PkgExecution row"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL Execute Pre Load Wrapper" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1874FFCE-6369-41E5-B74D-A0AFCDBA73D2}"
+      DTS:From="Package\SQL Execute Pre Load Wrapper"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FST Create Process folder if Not exists" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{0C642F73-053F-4236-BCE6-0494AF8FE02D}"
+      DTS:From="Package\FLC Loop Through Packages"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\EST Execute Customer Refresh" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{4816372A-5E00-4997-AFE9-3F7B52A257F0}"
+      DTS:From="Package\FST Create Process folder if Not exists"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\FST Create Error folder if Not exists"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{1EFA337C-CC0F-4B03-AC67-5E14B73261E3}"
+      DTS:From="Package\FST Create Error folder if Not exists"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\FLC Loop Through Packages"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{298533F8-E3AC-4415-983C-CA354970293D}"
+      DTS:From="Package\SFTP To S3 and DataBridgeDownload Loop Packages"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\EST Insert PkgExecution row" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{430F0D8E-8125-4B03-96E0-0FF3B248BA7E}"
+      DTS:From="Package\EST Execute Customer Refresh"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\EST Update PkgExecution" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{29F2A341-F837-4FAC-B2EB-850BD3CCF6CF}"
+      DTS:EventID="55704752"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{98FC3CC5-4B77-4432-ACFE-5C5D318EF07D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SMT Package Error (Internal)"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Internal"
+          DTS:DTSID="{ED6EA9C1-8DC8-41EB-BD57-999B2606F9E0}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SMT Package Error (Internal)"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="CCLine">@[$Project::PcvSMTPInternalMailCc]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="FromLine">@[$Project::PcvSMTPMailFrom]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">"An error occurred while running the package " 
++  @[System::PackageName] + ". Details of the error message is given below :\n\n"
++ SUBSTRING(@[System::ErrorDescription], 1, 3800)</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Subject">"An error has occurred while processing a file (Client: "+ @[User::IcvClientName] + ", Pkg: " + @[System::PackageName] + ".dtsx)"</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[$Project::PcvSMTPInternalMailTo]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{174AD17A-BE11-4456-82E8-936C284838A8}"
+              SendMailTask:From="ssis@merkleinc.com"
+              SendMailTask:To="support.vtwc@Merkleinc.com"
+              SendMailTask:Subject="An error has occurred while processing a file (Client: VTWC, Pkg: VTWC_PackageWrapper 2.dtsx)"
+              SendMailTask:MessageSource="An error occurred while running the package VTWC_PackageWrapper 2. Details of the error message is given below :&#xA;&#xA;" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SMT Package Error (Internal) Secondary"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Internal"
+          DTS:DTSID="{232CEBAF-20D1-4DB9-AAE0-50F0C81A4842}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SMT Package Error (Internal) Secondary"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="CCLine">@[$Project::PcvSMTPInternalMailCc]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="FromLine">@[$Project::PcvSMTPMailFrom]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">"An error occurred while running the package " 
++  @[System::PackageName] 
++ ".\nPlease refer to the ssis log on the DW server for details.\nThe error was raised by: " 
++  @[System::SourceName]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Subject">"An error has occurred while processing a file (Client: "+ @[User::IcvClientName] + ", Pkg: " + @[System::PackageName] + ".dtsx)"</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[$Project::PcvSMTPInternalMailTo]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{174AD17A-BE11-4456-82E8-936C284838A8}"
+              SendMailTask:From="ssis@merkleinc.com"
+              SendMailTask:To="support.vtwc@Merkleinc.com"
+              SendMailTask:Subject="An error has occurred while processing a file (Client: VTWC, Pkg: VTWC_PackageWrapper 2.dtsx)"
+              SendMailTask:MessageSource="An error occurred while running the package VTWC_PackageWrapper 2.&#xA;Please refer to the ssis log on the DW server for details.&#xA;The error was raised by: " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FF036580-48F0-406D-8880-441CC8EF813F}"
+          DTS:From="Package.EventHandlers[OnError]\SMT Package Error (Internal)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\SMT Package Error (Internal) Secondary"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\EST Execute Customer Refresh"
+          TopLeft="280.571433349532,1061.63529691465" />
+        <NodeLayout
+          Size="217,41"
+          Id="Package\EST Insert PkgExecution row"
+          TopLeft="258,410" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\EST Update PkgExecution"
+          TopLeft="252.28571425652,1160.72941258836" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\FLC Loop Through Packages\EPT Package Execution"
+          TopLeft="134.5,49.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="489,205"
+          Size="489,248"
+          Id="Package\FLC Loop Through Packages"
+          TopLeft="114,788" />
+        <NodeLayout
+          Size="247,41"
+          Id="Package\FST Create Error folder if Not exists"
+          TopLeft="235,678" />
+        <NodeLayout
+          Size="259,41"
+          Id="Package\FST Create Process folder if Not exists"
+          TopLeft="234,594" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\SFTP To S3 and DataBridgeDownload Loop Packages\EPT Package Execution"
+          TopLeft="47.5,37.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="352,156"
+          Size="352,199"
+          Id="Package\SFTP To S3 and DataBridgeDownload Loop Packages"
+          TopLeft="191,127" />
+        <NodeLayout
+          Size="225,41"
+          Id="Package\SQL Execute Pre Load Wrapper"
+          TopLeft="255,506" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="367.25,452">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="365.75,548">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="358.4,1036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="34.171433349532,25.6352969146501"
+              Start="0,0"
+              End="34.171433349532,18.1352969146501">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.81764845732505" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.81764845732505"
+                    Point2="0,12.817648457325"
+                    Point3="4,12.817648457325" />
+                  <mssgle:LineSegment
+                    End="30.171433349532,12.817648457325" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.171433349532,12.817648457325"
+                    Point2="34.171433349532,12.817648457325"
+                    Point3="34.171433349532,16.817648457325" />
+                  <mssgle:LineSegment
+                    End="34.171433349532,18.1352969146501" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="360.75,636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,11.4453125,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="358.5,719">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,24.9453125,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="366.75,326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,84"
+              Start="0,0"
+              End="0,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="392.571433349532,1103.23529691465">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-40.685719093012,57.49411567371"
+              Start="0,0"
+              End="-40.685719093012,49.99411567371">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.747057836855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.747057836855"
+                    Point2="0,28.747057836855"
+                    Point3="-4,28.747057836855" />
+                  <mssgle:LineSegment
+                    End="-36.685719093012,28.747057836855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.685719093012,28.747057836855"
+                    Point2="-40.685719093012,28.747057836855"
+                    Point3="-40.685719093012,32.747057836855" />
+                  <mssgle:LineSegment
+                    End="-40.685719093012,49.99411567371" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="219,42"
+          Id="Package.EventHandlers[OnError]\SMT Package Error (Internal)"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package.EventHandlers[OnError]\SMT Package Error (Internal) Secondary"
+          TopLeft="352,71" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="279,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="73,11"
+              Start="0,0"
+              End="65.5,11">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5,0"
+                    Point2="36.5,0"
+                    Point3="36.5,4" />
+                  <mssgle:LineSegment
+                    End="36.5,7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.5,7"
+                    Point2="36.5,11"
+                    Point3="40.5,11" />
+                  <mssgle:LineSegment
+                    End="65.5,11" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.25865234375,-15.7490234375,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

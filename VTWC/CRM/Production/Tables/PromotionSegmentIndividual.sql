@@ -1,0 +1,27 @@
+﻿CREATE TABLE [Production].[PromotionSegmentIndividual] (
+    [PromotionSegmentIndividualID] INT             IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
+    [Name]                         NVARCHAR (256)  NULL,
+    [Description]                  NVARCHAR (4000) NULL,
+    [CreatedDate]                  DATETIME        NOT NULL,
+    [CreatedBy]                    INT             NOT NULL,
+    [LastModifiedDate]             DATETIME        NOT NULL,
+    [LastModifiedBy]               INT             NOT NULL,
+    [ArchivedInd]                  BIT             DEFAULT ((0)) NOT NULL,
+    [PromotionSegmentDefinitionID] INT             NOT NULL,
+    [IndividualID]                 INT             NOT NULL,
+    [InformationSourceID]          INT             NULL,
+    [ExtReference]                 NVARCHAR (256)  NULL,
+    [SourceCreatedDate]            DATETIME        NULL,
+    [OfferCode]                    VARCHAR (256)   NULL,
+    [Question1]                    NVARCHAR (512)  NULL,
+    [Answer1]                      NVARCHAR (512)  NULL,
+    [Question2]                    NVARCHAR (512)  NULL,
+    [Answer2]                      NVARCHAR (512)  NULL,
+    [Question3]                    NVARCHAR (512)  NULL,
+    [Answer3]                      NVARCHAR (512)  NULL,
+    CONSTRAINT [cndx_PrimaryKey_PromotionSegmentIndividualr] PRIMARY KEY CLUSTERED ([PromotionSegmentIndividualID] ASC),
+    CONSTRAINT [FK_PromotionSegmentIndividual_IndividualID] FOREIGN KEY ([IndividualID]) REFERENCES [Staging].[STG_Individual] ([IndividualID]),
+    CONSTRAINT [FK_PromotionSegmentIndividual_InformationSourceID] FOREIGN KEY ([InformationSourceID]) REFERENCES [Reference].[InformationSource] ([InformationSourceID]),
+    CONSTRAINT [FK_PromotionSegmentIndividual_PromotionSegmentDefinitionID] FOREIGN KEY ([PromotionSegmentDefinitionID]) REFERENCES [Reference].[PromotionSegmentDefinition] ([PromotionSegmentDefinitionID])
+);
+

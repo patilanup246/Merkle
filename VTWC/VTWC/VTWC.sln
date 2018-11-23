@@ -1,0 +1,125 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "VTWC ETL", "VTWC ETL\VTWC ETL.dtproj", "{F37C9DF9-1876-4717-A555-A2A3931AD6E6}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CRM", "CRM\CRM.sqlproj", "{DB838CC6-1AF4-427E-9617-D002F1DB501E}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "VTWC Reporting", "VTWC Reporting\VTWC Reporting.rptproj", "{8B40900B-9031-4144-851E-9041170E0040}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ibm_sandbox", "ibm_sandbox\ibm_sandbox.sqlproj", "{A9B98A78-06FB-4BB2-84E1-0803C9211291}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DACPAC", "DACPAC", "{D9FC752E-23B4-4551-8222-ED58B0F0A08F}"
+	ProjectSection(SolutionItems) = preProject
+		ibm_sandbox\bin\Debug\IBM_System.dacpac = ibm_sandbox\bin\Debug\IBM_System.dacpac
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Prod|Any CPU = Prod|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test|Any CPU = Test|Any CPU
+		UAT|Any CPU = UAT|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Debug|Any CPU.ActiveCfg = Development
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Debug|Any CPU.Build.0 = Development
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.DebugLocal|Any CPU.ActiveCfg = Development
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.DebugLocal|Any CPU.Build.0 = Development
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Development|Any CPU.ActiveCfg = Development
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Development|Any CPU.Build.0 = Development
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Prod|Any CPU.ActiveCfg = Prod
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Prod|Any CPU.Build.0 = Prod
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Release|Any CPU.ActiveCfg = UAT
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Release|Any CPU.Build.0 = UAT
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Test|Any CPU.ActiveCfg = Test
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.Test|Any CPU.Build.0 = Test
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.UAT|Any CPU.ActiveCfg = UAT
+		{F37C9DF9-1876-4717-A555-A2A3931AD6E6}.UAT|Any CPU.Build.0 = UAT
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.DebugLocal|Any CPU.Deploy.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Prod|Any CPU.Deploy.0 = Prod|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.Test|Any CPU.Deploy.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.UAT|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.UAT|Any CPU.Build.0 = Debug|Any CPU
+		{DB838CC6-1AF4-427E-9617-D002F1DB501E}.UAT|Any CPU.Deploy.0 = Debug|Any CPU
+		{8B40900B-9031-4144-851E-9041170E0040}.Debug|Any CPU.ActiveCfg = Debug
+		{8B40900B-9031-4144-851E-9041170E0040}.Debug|Any CPU.Build.0 = Debug
+		{8B40900B-9031-4144-851E-9041170E0040}.Debug|Any CPU.Deploy.0 = Debug
+		{8B40900B-9031-4144-851E-9041170E0040}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
+		{8B40900B-9031-4144-851E-9041170E0040}.DebugLocal|Any CPU.Build.0 = DebugLocal
+		{8B40900B-9031-4144-851E-9041170E0040}.Development|Any CPU.ActiveCfg = DebugLocal
+		{8B40900B-9031-4144-851E-9041170E0040}.Development|Any CPU.Build.0 = DebugLocal
+		{8B40900B-9031-4144-851E-9041170E0040}.Prod|Any CPU.ActiveCfg = Prod
+		{8B40900B-9031-4144-851E-9041170E0040}.Release|Any CPU.ActiveCfg = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.Release|Any CPU.Build.0 = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.Release|Any CPU.Deploy.0 = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.Test|Any CPU.ActiveCfg = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.Test|Any CPU.Build.0 = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.Test|Any CPU.Deploy.0 = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.UAT|Any CPU.ActiveCfg = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.UAT|Any CPU.Build.0 = Release
+		{8B40900B-9031-4144-851E-9041170E0040}.UAT|Any CPU.Deploy.0 = Release
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.DebugLocal|Any CPU.Deploy.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Prod|Any CPU.Deploy.0 = Prod|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.Test|Any CPU.Deploy.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.UAT|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.UAT|Any CPU.Build.0 = Debug|Any CPU
+		{A9B98A78-06FB-4BB2-84E1-0803C9211291}.UAT|Any CPU.Deploy.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfsrnd.stella.bristol.tdg.ad:8080/tfs/clients
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = VTWC\u0020ETL\\VTWC\u0020ETL.dtproj
+		SccProjectName1 = VTWC\u0020ETL
+		SccLocalPath1 = VTWC\u0020ETL
+		SccProjectUniqueName2 = CRM\\CRM.sqlproj
+		SccProjectName2 = CRM
+		SccLocalPath2 = CRM
+		SccProjectUniqueName3 = VTWC\u0020Reporting\\VTWC\u0020Reporting.rptproj
+		SccProjectName3 = VTWC\u0020Reporting
+		SccLocalPath3 = VTWC\u0020Reporting
+		SccProjectUniqueName4 = ibm_sandbox\\ibm_sandbox.sqlproj
+		SccProjectName4 = ibm_sandbox
+		SccLocalPath4 = ibm_sandbox
+	EndGlobalSection
+EndGlobal

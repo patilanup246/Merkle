@@ -1,0 +1,266 @@
+﻿CREATE PROC [Webtrends].[CreateWebSearchesSummary]
+AS
+BEGIN
+	--TRUNCATE TABLE [Production].[WebSearchesSummary]
+
+	--INSERT [Production].[WebSearchesSummary](
+	--	 [CustomerID]
+	--	,[RankLast1Days]
+	--	,[RankLast3Days]
+	--	,[RankLast5Days]
+	--	,[OriginNLC]
+	--	,[OriginStation]
+	--	,[DestinationNLC]
+	--	,[DestinationStation]
+	--	,[ViaNLC]
+	--	,[ViaStation]
+	--	,[AvoidNLC]
+	--	,[AvoidStation]
+	--	,[Direct]
+	--	,[OutwardDate]
+	--	,[OutwardTime]
+	--	,[OutwardTimePreference]
+	--	,[JourneyType]
+	--	,[OpenReturn]
+	--	,[ReturnDate]
+	--	,[ReturnTime]
+	--	,[ReturnTime Preference]
+	--	,[NoAdults]
+	--	,[NoChildren]
+	--	,[Railcard1Type]
+	--)
+	--SELECT
+	--	 Rank5Days.[CustomerID]
+	--	,[RankLast1Days]
+	--	,[RankLast3Days]
+	--	,Rank5Days.[RankLast5Days]
+	--	,Rank5Days.[OriginNLC]
+	--	,(SELECT DISTINCT TOP 1 Name FROM [CRM].[Reference].[Location] L WHERE L.[NLCCode] = NULLIF(Rank5Days.[OriginNLC],'')) [OriginStation]
+	--	,Rank5Days.[DestinationNLC]
+	--	,(SELECT DISTINCT TOP 1 Name FROM [CRM].[Reference].[Location] L WHERE L.[NLCCode] = NULLIF(Rank5Days.[DestinationNLC],'')) [DestinationStation]
+	--	,Rank5Days.[ViaNLC]
+	--	,(SELECT DISTINCT TOP 1 Name FROM [CRM].[Reference].[Location] L WHERE L.[NLCCode] = NULLIF(Rank5Days.[ViaNLC],'')) [ViaStation]
+	--	,Rank5Days.[AvoidNLC]
+	--	,(SELECT DISTINCT TOP 1 Name FROM [CRM].[Reference].[Location] L WHERE L.[NLCCode] = NULLIF(Rank5Days.[AvoidNLC],'')) [AvoidStation]
+	--	,[Direct]
+	--	,[OutwardDate]
+	--	,[OutwardTime]
+	--	,[OutwardTimePreference]
+	--	,[JourneyType]
+	--	,[OpenReturn]
+	--	,[ReturnDate]
+	--	,[ReturnTime]
+	--	,[ReturnTimePreference]
+	--	,[NoAdults]
+	--	,[NoChildren]
+	--	,[RailCard]
+	--FROM
+	--(
+	--	SELECT
+	--		 [CustomerID]
+	--		,ROW_NUMBER() OVER(PARTITION BY CustomerID ORDER BY COUNT(*) DESC, MAX(EventDateTime) DESC) [RankLast5Days]
+	--		,[OriginNLC]
+	--		,[DestinationNLC]
+	--		,[ViaNLC]
+	--		,[AvoidNLC]
+	--	FROM
+	--		(
+	--		SELECT
+	--			 [CustomerID]
+	--			,[EventDateTime]
+	--			,[OriginNLC]
+	--			,[DestinationNLC]
+	--			,[ViaNLC]
+	--			,[AvoidNLC]
+	--		FROM
+	--			[Production].[Searches]
+	--		WHERE
+	--			CustomerID IS NOT NULL
+	--			AND
+	--			EventDateTime > CAST(GETDATE() - 5 AS DATE)
+
+	--		UNION ALL
+
+	--		SELECT
+	--			 [CustomerID]
+	--			,[EventDateTime]
+	--			,[OriginNLC]
+	--			,[DestinationNLC]
+	--			,NULL [ViaNLC]
+	--			,NULL [AvoidNLC]
+	--		FROM
+	--			[Production].[PageviewJourneys]
+	--		WHERE
+	--			CustomerID IS NOT NULL
+	--			AND
+	--			EventDateTime > CAST(GETDATE() - 5 AS DATE)
+	--		) A
+	--	GROUP BY
+	--		 [CustomerID]
+	--		,[OriginNLC]
+	--		,[DestinationNLC]
+	--		,[ViaNLC]
+	--		,[AvoidNLC]
+	--) Rank5Days LEFT JOIN
+	--(
+	--	SELECT
+	--		 [CustomerID]
+	--		,ROW_NUMBER() OVER(PARTITION BY CustomerID ORDER BY COUNT(*) DESC, MAX(EventDateTime) DESC) [RankLast3Days]
+	--		,[OriginNLC]
+	--		,[DestinationNLC]
+	--		,[ViaNLC]
+	--		,[AvoidNLC]
+	--	FROM
+	--		(
+	--		SELECT
+	--			 [CustomerID]
+	--			,[EventDateTime]
+	--			,[OriginNLC]
+	--			,[DestinationNLC]
+	--			,[ViaNLC]
+	--			,[AvoidNLC]
+	--		FROM
+	--			[Production].[Searches]
+	--		WHERE
+	--			CustomerID IS NOT NULL
+	--			AND
+	--			EventDateTime > CAST(GETDATE() - 3 AS DATE)
+
+	--		UNION ALL
+
+	--		SELECT
+	--			 [CustomerID]
+	--			,[EventDateTime]
+	--			,[OriginNLC]
+	--			,[DestinationNLC]
+	--			,NULL [ViaNLC]
+	--			,NULL [AvoidNLC]
+	--		FROM
+	--			[Production].[PageviewJourneys]
+	--		WHERE
+	--			CustomerID IS NOT NULL
+	--			AND
+	--			EventDateTime > CAST(GETDATE() - 3 AS DATE)
+	--		) A
+	--	GROUP BY
+	--		 [CustomerID]
+	--		,[OriginNLC]
+	--		,[DestinationNLC]
+	--		,[ViaNLC]
+	--		,[AvoidNLC]
+	--) Rank3Days
+	--	ON Rank5Days.CustomerID = Rank3Days.CustomerID
+	--	AND Rank5Days.OriginNLC = Rank3Days.OriginNLC
+	--	AND Rank5Days.DestinationNLC = Rank3Days.DestinationNLC
+	--	AND ISNULL(Rank5Days.ViaNLC,0) = ISNULL(Rank3Days.ViaNLC,0)
+	--	AND ISNULL(Rank5Days.AvoidNLC,0) = ISNULL(Rank3Days.AvoidNLC,0) LEFT JOIN
+	--(
+	--	SELECT
+	--		 [CustomerID]
+	--		,ROW_NUMBER() OVER(PARTITION BY CustomerID ORDER BY COUNT(*) DESC, MAX(EventDateTime) DESC) [RankLast1Days]
+	--		,[OriginNLC]
+	--		,[DestinationNLC]
+	--		,[ViaNLC]
+	--		,[AvoidNLC]
+	--	FROM
+	--		(
+	--		SELECT
+	--			 [CustomerID]
+	--			,[EventDateTime]
+	--			,[OriginNLC]
+	--			,[DestinationNLC]
+	--			,[ViaNLC]
+	--			,[AvoidNLC]
+	--		FROM
+	--			[Production].[Searches]
+	--		WHERE
+	--			CustomerID IS NOT NULL
+	--			AND
+	--			EventDateTime > CAST(GETDATE() - 1 AS DATE)
+
+	--		UNION ALL
+
+	--		SELECT
+	--			 [CustomerID]
+	--			,[EventDateTime]
+	--			,[OriginNLC]
+	--			,[DestinationNLC]
+	--			,NULL [ViaNLC]
+	--			,NULL [AvoidNLC]
+	--		FROM
+	--			[Production].[PageviewJourneys]
+	--		WHERE
+	--			CustomerID IS NOT NULL
+	--			AND
+	--			EventDateTime > CAST(GETDATE() - 1 AS DATE)
+	--		) A
+	--	GROUP BY
+	--		 [CustomerID]
+	--		,[OriginNLC]
+	--		,[DestinationNLC]
+	--		,[ViaNLC]
+	--		,[AvoidNLC]
+	--) Rank1Days
+	--	ON Rank1Days.CustomerID = Rank3Days.CustomerID
+	--	AND Rank1Days.OriginNLC = Rank3Days.OriginNLC
+	--	AND Rank1Days.DestinationNLC = Rank3Days.DestinationNLC
+	--	AND ISNULL(Rank1Days.ViaNLC,0) = ISNULL(Rank3Days.ViaNLC,0)
+	--	AND ISNULL(Rank1Days.AvoidNLC,0) = ISNULL(Rank3Days.AvoidNLC,0) JOIN
+	--(
+	--SELECT
+	--	 [CustomerID]
+	--	,[OriginNLC]
+	--	,[DestinationNLC]
+	--	,[ViaNLC]
+	--	,[AvoidNLC]
+	--	,ROW_NUMBER() OVER(PARTITION BY CustomerID, OriginNLC, DestinationNLC, ViaNLC, AvoidNLC ORDER BY COUNT(*) DESC, MAX(EventDateTime) DESC) [RankLast5Days]
+	--	,[Direct]
+	--	,[OutwardDate]
+	--	,[OutwardTime]
+	--	,[OutwardTimePreference]
+	--	,[JourneyType]
+	--	,[OpenReturn]
+	--	,[ReturnDate]
+	--	,[ReturnTime]
+	--	,[ReturnTimePreference]
+	--	,[NoAdults]
+	--	,[NoChildren]
+	--	,[RailCard]
+	--FROM
+	--	[Production].[Searches]
+	--WHERE
+	--	CustomerID IS NOT NULL
+	--	AND
+	--	EventDateTime > CAST(GETDATE() - 5 AS DATE)
+	--GROUP BY
+	--	 [CustomerID]
+	--	,[OriginNLC]
+	--	,[DestinationNLC]
+	--	,[ViaNLC]
+	--	,[AvoidNLC]
+	--	,[Direct]
+	--	,[OutwardDate]
+	--	,[OutwardTime]
+	--	,[OutwardTimePreference]
+	--	,[JourneyType]
+	--	,[OpenReturn]
+	--	,[ReturnDate]
+	--	,[ReturnTime]
+	--	,[ReturnTimePreference]
+	--	,[NoAdults]
+	--	,[NoChildren]
+	--	,[RailCard]
+	--) Details5Days
+	--	ON Rank5Days.CustomerID = Details5Days.CustomerID
+	--	AND Rank5Days.OriginNLC = Details5Days.OriginNLC
+	--	AND Rank5Days.DestinationNLC = Details5Days.DestinationNLC
+	--	AND ISNULL(Rank5Days.ViaNLC,0) = ISNULL(Details5Days.ViaNLC,0)
+	--	AND ISNULL(Rank5Days.AvoidNLC,0) = ISNULL(Details5Days.AvoidNLC,0)
+	--	AND Details5Days.RankLast5Days = 1
+	--ORDER BY
+	--	 Rank1Days.CustomerID
+	--	,Rank1Days.RankLast1Days
+	--	,Rank3Days.RankLast3Days
+	--	,Rank5Days.RankLast5Days
+select 1
+END

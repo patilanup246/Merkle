@@ -1,0 +1,2 @@
+﻿CREATE USER [PCLC0\dmani] FOR LOGIN [PCLC0\dmani];
+

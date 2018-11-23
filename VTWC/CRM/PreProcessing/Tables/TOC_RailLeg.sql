@@ -1,0 +1,26 @@
+﻿CREATE TABLE [PreProcessing].[TOC_RailLeg] (
+    [TOC_RailLegID]       INT           IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
+    [DateCreated]         DATETIME      NOT NULL,
+    [DateUpdated]         DATETIME      NOT NULL,
+    [TransactionDate]     DATETIME      NOT NULL,
+    [JourneyId]           INT           NOT NULL,
+    [LegId]               INT           NOT NULL,
+    [LegNo]               INT           NOT NULL,
+    [LegOrigStation]      NVARCHAR (50) NULL,
+    [LegDestStation]      NVARCHAR (50) NULL,
+    [DepDateTime]         DATETIME      NULL,
+    [ArrDateTime]         DATETIME      NULL,
+    [ModeOfTransport]     NVARCHAR (2)  NULL,
+    [SeatReserved]        NCHAR (1)     NULL,
+    [BicycleReserved]     NCHAR (1)     NULL,
+    [SeatingClass]        NCHAR (1)     NULL,
+    [DiningCar]           NCHAR (1)     NULL,
+    [ReservationRequired] NCHAR (1)     NULL,
+    [OperatorCode]        NVARCHAR (6)  NULL,
+    [BicycleComp]         NCHAR (1)     NULL,
+    [DiningRequired]      NCHAR (1)     NULL,
+    [RSID]                NVARCHAR (6)  NULL,
+    [TracsTrId]           INT           NULL,
+    CONSTRAINT [cndx_PrimaryKey_TOC_RailLeg] PRIMARY KEY CLUSTERED ([TOC_RailLegID] ASC)
+);
+

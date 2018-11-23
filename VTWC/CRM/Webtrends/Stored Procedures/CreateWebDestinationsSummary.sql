@@ -1,0 +1,149 @@
+﻿CREATE PROC [Webtrends].[CreateWebDestinationsSummary]
+AS
+BEGIN
+	--TRUNCATE TABLE [Production].[WebDestinationsSummary]
+
+	--INSERT [Production].[WebDestinationsSummary](
+	--	 [CustomerID]
+	--	,[RankLast1Days]
+	--	,[RankLast3Days]
+	--	,[RankLast5Days]
+	--	,[DestinationNLC]
+	--)
+	--SELECT
+	--	 Rank5Days.[CustomerID]
+	--	,Rank1Days.[RankLast1Days]
+	--	,Rank3Days.[RankLast3Days]
+	--	,Rank5Days.[RankLast5Days]
+	--	,Rank5Days.[DestinationNLC]
+	--FROM
+	--(
+	--	SELECT
+	--		 [CustomerID]
+	--		,ROW_NUMBER() OVER(PARTITION BY CustomerID ORDER BY COUNT(*) DESC, MAX(EventDateTime) DESC) [RankLast5Days]
+	--		,[DestinationNLC]
+	--	FROM
+	--		(
+	--			SELECT 
+	--				 CustomerID
+	--				,EventDateTime
+	--				,DestinationNLC
+	--			FROM
+	--				[Production].[Searches]
+	--			WHERE
+	--				CustomerID IS NOT NULL
+	--				AND
+	--				EventDateTime > CAST(GETDATE() - 5 AS DATE)
+	--				AND
+	--				DestinationNLC IS NOT NULL
+			
+	--			UNION ALL
+
+	--			SELECT 
+	--				 CustomerID
+	--				,EventDateTime
+	--				,DestinationNLC
+	--			FROM
+	--				[Production].[PageViewJourneys]
+	--			WHERE
+	--				CustomerID IS NOT NULL
+	--				AND
+	--				EventDateTime > CAST(GETDATE() - 5 AS DATE)
+	--				AND
+	--				DestinationNLC IS NOT NULL
+	--		) A
+	--	GROUP BY
+	--		 [CustomerID]
+	--		,[DestinationNLC]
+
+	--) Rank5Days LEFT JOIN
+	--(
+	--	SELECT
+	--		 [CustomerID]
+	--		,ROW_NUMBER() OVER(PARTITION BY CustomerID ORDER BY COUNT(*) DESC, MAX(EventDateTime) DESC) [RankLast3Days]
+	--		,[DestinationNLC]
+	--	FROM
+	--		(
+	--			SELECT 
+	--				 CustomerID
+	--				,EventDateTime
+	--				,DestinationNLC
+	--			FROM
+	--				[Production].[Searches]
+	--			WHERE
+	--				CustomerID IS NOT NULL
+	--				AND
+	--				EventDateTime > CAST(GETDATE() - 3 AS DATE)
+	--				AND
+	--				DestinationNLC IS NOT NULL
+			
+	--			UNION ALL
+
+	--			SELECT 
+	--				 CustomerID
+	--				,EventDateTime
+	--				,DestinationNLC
+	--			FROM
+	--				[Production].[PageViewJourneys]
+	--			WHERE
+	--				CustomerID IS NOT NULL
+	--				AND
+	--				EventDateTime > CAST(GETDATE() - 3 AS DATE)
+	--				AND
+	--				DestinationNLC IS NOT NULL
+	--		) A
+	--	GROUP BY
+	--		 [CustomerID]
+	--		,[DestinationNLC]
+	--) Rank3Days
+	--	ON Rank5Days.CustomerID = Rank3Days.CustomerID
+	--	AND Rank5Days.DestinationNLC = Rank3Days.DestinationNLC LEFT JOIN
+	--(
+	--SELECT
+	--	 [CustomerID]
+	--	,ROW_NUMBER() OVER(PARTITION BY CustomerID ORDER BY COUNT(*) DESC, MAX(EventDateTime) DESC) [RankLast1Days]
+	--	,[DestinationNLC]
+	--FROM
+	--	(
+	--			SELECT 
+	--				 CustomerID
+	--				,EventDateTime
+	--				,DestinationNLC
+	--			FROM
+	--				[Production].[Searches]
+	--			WHERE
+	--				CustomerID IS NOT NULL
+	--				AND
+	--				EventDateTime > CAST(GETDATE() - 1 AS DATE)
+	--				AND
+	--				DestinationNLC IS NOT NULL
+			
+	--			UNION ALL
+
+	--			SELECT 
+	--				 CustomerID
+	--				,EventDateTime
+	--				,DestinationNLC
+	--			FROM
+	--				[Production].[PageViewJourneys]
+	--			WHERE
+	--				CustomerID IS NOT NULL
+	--				AND
+	--				EventDateTime > CAST(GETDATE() - 1 AS DATE)
+	--				AND
+	--				DestinationNLC IS NOT NULL
+	--		) A
+	--GROUP BY
+	--	 [CustomerID]
+	--	,[DestinationNLC]
+	--) Rank1Days
+	--	ON Rank1Days.CustomerID = Rank3Days.CustomerID
+	--	AND Rank1Days.DestinationNLC = Rank3Days.DestinationNLC
+
+	--ORDER BY
+	--	 Rank5Days.CustomerID
+	--	,Rank1Days.RankLast1Days
+	--	,Rank3Days.RankLast3Days
+	--	,Rank5Days.RankLast5Days
+select 1
+END

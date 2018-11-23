@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SMTPMailConnectionManager"
+  DTS:DTSID="{174AD17A-BE11-4456-82E8-936C284838A8}"
+  DTS:Description="SMTP Mail Connection Manager"
+  DTS:CreationName="SMTP">
+  <DTS:ObjectData>
+    <SmtpConnectionManager
+      ConnectionString="SmtpServer=webshield01.pclc0.merkle.local;UseWindowsAuthentication=True;EnableSsl=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

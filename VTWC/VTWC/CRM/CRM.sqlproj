@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CRM</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{db838cc6-1af4-427e-9617-d002f1db501e}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CRM</RootNamespace>
+    <AssemblyName>CRM</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Prod|AnyCPU' ">
+    <OutputPath>bin\Prod\</OutputPath>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Staging\" />
+    <Folder Include="Staging\Tables\" />
+    <Folder Include="Reference\" />
+    <Folder Include="Reference\Tables\" />
+    <Folder Include="Railtimetable\" />
+    <Folder Include="Railtimetable\Tables\" />
+    <Folder Include="Production\" />
+    <Folder Include="Production\Tables\" />
+    <Folder Include="PreProcessing\" />
+    <Folder Include="PreProcessing\Tables\" />
+    <Folder Include="Operations\" />
+    <Folder Include="Operations\Tables\" />
+    <Folder Include="Migration\" />
+    <Folder Include="Migration\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Reference\Views\" />
+    <Folder Include="Railtimetable\Views\" />
+    <Folder Include="Production\Views\" />
+    <Folder Include="api_shared\" />
+    <Folder Include="api_shared\Views\" />
+    <Folder Include="api_preferences\" />
+    <Folder Include="api_preferences\Views\" />
+    <Folder Include="api_manager\" />
+    <Folder Include="api_manager\Views\" />
+    <Folder Include="api_customer_loyalty\" />
+    <Folder Include="api_customer_loyalty\Views\" />
+    <Folder Include="api_customer_competition\" />
+    <Folder Include="api_customer_competition\Views\" />
+    <Folder Include="api_customer\" />
+    <Folder Include="api_customer\Views\" />
+    <Folder Include="api_competition\" />
+    <Folder Include="api_competition\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="Staging\Functions\" />
+    <Folder Include="Reference\Functions\" />
+    <Folder Include="Production\Functions\" />
+    <Folder Include="Staging\Stored Procedures\" />
+    <Folder Include="Reference\Stored Procedures\" />
+    <Folder Include="Railtimetable\Stored Procedures\" />
+    <Folder Include="Production\Stored Procedures\" />
+    <Folder Include="PreProcessing\Stored Procedures\" />
+    <Folder Include="Operations\Stored Procedures\" />
+    <Folder Include="api_shared\Stored Procedures\" />
+    <Folder Include="api_preferences\Stored Procedures\" />
+    <Folder Include="api_manager\Stored Procedures\" />
+    <Folder Include="api_customer_competition\Stored Procedures\" />
+    <Folder Include="api_customer\Stored Procedures\" />
+    <Folder Include="api_competition\Stored Procedures\" />
+    <Folder Include="Database Triggers\" />
+    <Folder Include="api_manager\User Defined Types\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Synonyms\" />
+    <Folder Include="dat_dtv\" />
+    <Folder Include="dat_dtv\Tables\" />
+    <Folder Include="dat_dtv\Stored Procedures\" />
+    <Folder Include="Assemblies\" />
+    <Folder Include="Audit\" />
+    <Folder Include="Audit\Tables\" />
+    <Folder Include="Migration\Stored Procedures\" />
+    <Folder Include="Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\DDLlog.sql" />
+    <Build Include="Staging\Tables\STG_CustomerAggregation.sql" />
+    <None Include="Staging\Tables\STG_Address.sql" />
+    <Build Include="Staging\Tables\STG_IndividualSubscriptionPreference.sql" />
+    <Build Include="Staging\Tables\STG_LoyaltyAccount.sql" />
+    <Build Include="Staging\Tables\STG_Customer.sql" />
+    <Build Include="Staging\Tables\STG_IndividualCustomerAudit.sql" />
+    <Build Include="Staging\Tables\STG_IndividualAlert.sql" />
+    <Build Include="Staging\Tables\STG_JourneyTrain.sql" />
+    <Build Include="Staging\Tables\STG_IncidentCase.sql" />
+    <Build Include="Staging\Tables\Visitors.sql" />
+    <Build Include="Staging\Tables\STG_FIRST_CLASS_UPGRADES.sql" />
+    <Build Include="Staging\Tables\STG_WM_UNSUBSCRIBES.sql" />
+    <Build Include="Staging\Tables\STG_WebTrendsLoginEvent.sql" />
+    <Build Include="Staging\Tables\STG_weather_forecast.sql" />
+    <Build Include="Staging\Tables\STG_Train_RSID_Mapping.sql" />
+    <Build Include="Staging\Tables\STG_AddressUnique.sql" />
+    <Build Include="Staging\Tables\STG_TacticalProgrammeLoadErrors.sql" />
+    <Build Include="Staging\Tables\STG_SPMasterSuppressionList.sql" />
+    <Build Include="Staging\Tables\STG_Journey.sql" />
+    <Build Include="Staging\Tables\STG_ElectronicAddress.sql" />
+    <Build Include="Staging\Tables\STG_DistressedInventory.sql" />
+    <Build Include="Staging\Tables\STG_VTWC_CustomerAggregation.sql" />
+    <Build Include="Staging\Tables\STG_RegistrationError.sql" />
+    <Build Include="Staging\Tables\STG_CustomerSubscriptionPreference.sql" />
+    <Build Include="Staging\Tables\STG_CustomerPreference.sql" />
+    <Build Include="Staging\Tables\STG_SalesTransaction.sql" />
+    <Build Include="Staging\Tables\STG_CustomerLoyaltyAccount.sql" />
+    <Build Include="Staging\Tables\STG_RefundDetail.sql" />
+    <Build Include="Staging\Tables\STG_CustomerAlert.sql" />
+    <Build Include="Staging\Tables\STG_Individual.sql" />
+    <Build Include="Staging\Tables\STG_RailblazersData.sql" />
+    <Build Include="Staging\Tables\STG_SalesDetail.sql" />
+    <Build Include="Staging\Tables\STG_Collection.sql" />
+    <Build Include="Staging\Tables\STG_LoyaltySeason_Instalments.sql" />
+    <Build Include="Staging\Tables\STG_BugleEvents.sql" />
+    <Build Include="Staging\Tables\STG_LoyaltyRate.sql" />
+    <None Include="Staging\Tables\STG_Blacklist.sql" />
+    <Build Include="Staging\Tables\STG_AdminUI_CustomerSegment.sql" />
+    <Build Include="Staging\Tables\STG_LoyaltyAllocation.sql" />
+    <Build Include="Staging\Tables\STG_Refund.sql" />
+    <Build Include="Staging\Tables\STG_KeyMapping.sql" />
+    <Build Include="Staging\Tables\STG_PreferenceOptions.sql" />
+    <Build Include="Staging\Tables\Searches.sql" />
+    <Build Include="Staging\Tables\STG_Preference.sql" />
+    <Build Include="Staging\Tables\STG_LoyaltySeason_Summary.sql" />
+    <Build Include="Staging\Tables\PageViews.sql" />
+    <Build Include="Staging\Tables\STG_JourneyLeg.sql" />
+    <Build Include="Staging\Tables\MasterPostCode.sql" />
+    <Build Include="Staging\Tables\STG_JA_TouchPoint_Tracking.sql" />
+    <Build Include="Staging\Tables\STG_JA_Sales_Paths.sql" />
+    <Build Include="Staging\Tables\ContentGroups.sql" />
+    <Build Include="Staging\Tables\STG_JA_Raw_Sales.sql" />
+    <Build Include="Staging\Tables\STG_JA_NoSales_Paths.sql" />
+    <Build Include="Reference\Tables\InformationSource.sql" />
+    <Build Include="Reference\Tables\OperationalStatus.sql" />
+    <None Include="Reference\Tables\TicketValidity.sql" />
+    <Build Include="Reference\Tables\IncidentCaseType.sql" />
+    <Build Include="Reference\Tables\MSD_ProductType.sql" />
+    <Build Include="Reference\Tables\MSD_Entity.sql" />
+    <Build Include="Reference\Tables\Testdata.sql" />
+    <Build Include="Reference\Tables\IncidentCaseRefundType.sql" />
+    <Build Include="Reference\Tables\station_groupings.sql" />
+    <Build Include="Reference\Tables\LocationPostCodeLookUp.sql" />
+    <Build Include="Reference\Tables\IncidentCaseReason.sql" />
+    <Build Include="Reference\Tables\FulfilmentMethod.sql" />
+    <None Include="Reference\Tables\LocationAlias.sql" />
+    <Build Include="Reference\Tables\DataType.sql" />
+    <Build Include="Reference\Tables\Profanity.sql" />
+    <Build Include="Reference\Tables\IndividualStatus.sql" />
+    <Build Include="Reference\Tables\DataImportType.sql" />
+    <None Include="Reference\Tables\ProductTicketClassification.sql" />
+    <None Include="Reference\Tables\DataImportDefinition.sql" />
+    <Build Include="Reference\Tables\IncidentCaseStatus.sql" />
+    <Build Include="Reference\Tables\Emaildomain.sql" />
+    <Build Include="Reference\Tables\CustomerType.sql" />
+    <Build Include="Reference\Tables\Country.sql" />
+    <Build Include="Reference\Tables\Period.sql" />
+    <Build Include="Reference\Tables\RetailChannel.sql" />
+    <Build Include="Reference\Tables\ConfigurationType.sql" />
+    <None Include="Reference\Tables\PaymentMethod.sql" />
+    <Build Include="Reference\Tables\TransactionStatus.sql" />
+    <Build Include="Reference\Tables\NectarSequenceNumber.sql" />
+    <Build Include="Reference\Tables\ResponseCodeType.sql" />
+    <Build Include="Reference\Tables\TOC.sql" />
+    <Build Include="Reference\Tables\Configuration.sql" />
+    <Build Include="Reference\Tables\MSD_StringMapBase.sql" />
+    <Build Include="Reference\Tables\ChannelType.sql" />
+    <Build Include="Reference\Tables\ResponseCode.sql" />
+    <Build Include="Reference\Tables\AggregationType.sql" />
+    <None Include="Reference\Tables\MSD_Product.sql" />
+    <Build Include="Reference\Tables\RefundType.sql" />
+    <Build Include="Reference\Tables\TicketType.sql" />
+    <Build Include="Reference\Tables\AddressType.sql" />
+    <Build Include="Reference\Tables\RefundReasonCode.sql" />
+    <Build Include="Reference\Tables\TicketSeasonType.sql" />
+    <Build Include="Reference\Tables\RefundDecisionCode.sql" />
+    <Build Include="Reference\Tables\TicketRestriction.sql" />
+    <Build Include="Reference\Tables\RailcardType.sql" />
+    <Build Include="Reference\Tables\TicketGroup.sql" />
+    <Build Include="Reference\Tables\PromotionSegmentDefinition.sql" />
+    <None Include="Reference\Tables\TicketClassification.sql" />
+    <Build Include="Reference\Tables\ModelSegment.sql" />
+    <Build Include="Reference\Tables\TicketClass.sql" />
+    <Build Include="Reference\Tables\ModelDefinition.sql" />
+    <Build Include="Reference\Tables\ProductGroup.sql" />
+    <Build Include="Reference\Tables\LoyaltyStatus.sql" />
+    <Build Include="Reference\Tables\SubscriptionType.sql" />
+    <Build Include="Reference\Tables\LoyaltyProgrammeType.sql" />
+    <Build Include="Reference\Tables\ProductCategory.sql" />
+    <Build Include="Reference\Tables\SubscriptionChannelType.sql" />
+    <Build Include="Reference\Tables\LocationMappingType.sql" />
+    <Build Include="Reference\Tables\SegmentTier.sql" />
+    <None Include="Reference\Tables\LocationMapping.sql" />
+    <Build Include="Reference\Tables\Product.sql" />
+    <Build Include="Reference\Tables\LocationGroup.sql" />
+    <Build Include="Reference\Tables\PeriodType.sql" />
+    <Build Include="Reference\Tables\Location.sql" />
+    <Build Include="Railtimetable\Tables\TimeTableLog.sql" />
+    <Build Include="Railtimetable\Tables\Late_Running_Reasons.sql" />
+    <Build Include="Railtimetable\Tables\JourneyStagesArchive.sql" />
+    <Build Include="Railtimetable\Tables\JourneyStages.sql" />
+    <Build Include="Railtimetable\Tables\JourneyOR.sql" />
+    <Build Include="Railtimetable\Tables\JourneyIP.sql" />
+    <Build Include="Railtimetable\Tables\JourneyDT.sql" />
+    <Build Include="Production\Tables\ModelRunSegment.sql" />
+    <Build Include="Production\Tables\ModelRun.sql" />
+    <Build Include="Production\Tables\LegacyProgram.sql" />
+    <Build Include="Production\Tables\LegacyContactHistory.sql" />
+    <Build Include="Production\Tables\LegacyCampaignResponse.sql" />
+    <Build Include="Production\Tables\LegacyCampaign.sql" />
+    <Build Include="Production\Tables\Individual.sql" />
+    <Build Include="Production\Tables\WebSearchesSummary.sql" />
+    <Build Include="Production\Tables\WebEngagementSummary.sql" />
+    <Build Include="Production\Tables\Customer.sql" />
+    <Build Include="Production\Tables\WebDestinationsSummary.sql" />
+    <Build Include="Production\Tables\SPMasterSuppressionList.sql" />
+    <Build Include="Production\Tables\RFV_History.sql" />
+    <Build Include="Production\Tables\PromotionSegmentIndividual.sql" />
+    <Build Include="Production\Tables\PromotionSegmentCustomer.sql" />
+    <Build Include="Production\Tables\ModelSegmentIndividual.sql" />
+    <Build Include="Production\Tables\ModelSegmentCustomer.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Legs.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_JourneyLegs.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Journey.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_FallowGroups.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Customer.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Bookings.sql" />
+    <Build Include="PreProcessing\Tables\Railblazers_Data.sql" />
+    <Build Include="PreProcessing\Tables\Darwin_TrainScheduleTrainData.sql" />
+    <Build Include="PreProcessing\Tables\Darwin_TrainSchedulePassingPoint.sql" />
+    <Build Include="PreProcessing\Tables\Darwin_TrainScheduleOrigin.sql" />
+    <Build Include="PreProcessing\Tables\Darwin_TrainScheduleIntermediatePoint.sql" />
+    <Build Include="PreProcessing\Tables\Darwin_TrainScheduleErrors.sql" />
+    <Build Include="PreProcessing\Tables\Darwin_TrainScheduleDestination.sql" />
+    <Build Include="PreProcessing\Tables\BugleEvents.sql" />
+    <Build Include="PreProcessing\Tables\Beam_Customer.sql" />
+    <Build Include="PreProcessing\Tables\TOC_Transaction.sql" />
+    <Build Include="PreProcessing\Tables\TOC_RailSupplement.sql" />
+    <Build Include="PreProcessing\Tables\TOC_RailLeg.sql" />
+    <Build Include="PreProcessing\Tables\TOC_RailJourney.sql" />
+    <Build Include="PreProcessing\Tables\TOC_RailFare.sql" />
+    <Build Include="PreProcessing\Tables\TOC_RailAdjustments.sql" />
+    <Build Include="PreProcessing\Tables\TOC_Purchase.sql" />
+    <Build Include="PreProcessing\Tables\TOC_Customer.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_VAFlyerTrans.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Traveller.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Transaction.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Supplements.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Stations.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Seasons.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Refunds.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Nectar.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_MobileTickets.sql" />
+    <Build Include="Operations\Tables\LogTiming.sql" />
+    <Build Include="Operations\Tables\LogMessage.sql" />
+    <None Include="Operations\Tables\DataImportDetail.sql" />
+    <None Include="Operations\Tables\DataImportLog.sql" />
+    <Build Include="Migration\Tables\tracking_logs.sql" />
+    <Build Include="Migration\Tables\extension.sql" />
+    <Build Include="Migration\Tables\delivery.sql" />
+    <Build Include="Migration\Tables\broad_log.sql" />
+    <None Include="dbo\Views\vw_TOCPlusCustomer.sql" />
+    <None Include="dbo\Views\vw_AdobeActivity15m.sql" />
+    <None Include="Reference\Views\Location_NLCCode_VW.sql" />
+    <None Include="Reference\Views\ChannelSubscriptionType.sql" />
+    <Build Include="Reference\Views\vwMasterPostCodeLookup.sql" />
+    <None Include="Railtimetable\Views\vw_JourneyStagesFULL.sql" />
+    <Build Include="Production\Views\LegacyResponse.sql" />
+    <Build Include="Production\Views\CustomerJourney.sql" />
+    <Build Include="Production\Views\vw_CustomerAggregations.sql" />
+    <None Include="Production\Views\Searches.sql" />
+    <Build Include="Production\Views\SalesTransactionByPeriod.sql" />
+    <Build Include="Production\Views\PageViews.sql" />
+    <Build Include="api_shared\Views\ContactEmail.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="api_preferences\Views\PreferenceType.sql" />
+    <Build Include="api_preferences\Views\Preferences.sql" />
+    <Build Include="api_manager\Views\Subscriptions.sql" />
+    <None Include="api_manager\Views\SubscriptionChannel.sql" />
+    <Build Include="api_manager\Views\PreferenceOptions.sql" />
+    <None Include="api_manager\Views\Preference.sql" />
+    <Build Include="api_manager\Views\LoyaltyRate.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="api_customer_loyalty\Views\LoyaltyHistory.sql" />
+    <Build Include="api_customer_competition\Views\CompetitionAnswer.sql" />
+    <Build Include="api_customer_competition\Views\Competition.sql" />
+    <None Include="api_customer\Views\Search.sql" />
+    <Build Include="api_customer\Views\PersonalDetails.sql" />
+    <Build Include="api_customer\Views\LoyaltyHistory.sql" />
+    <None Include="api_customer\Views\CustomerSubscription.sql" />
+    <Build Include="api_customer\Views\CustomerPreferenceValues.sql" />
+    <None Include="api_customer\Views\CustomerPreference.sql" />
+    <None Include="api_customer\Views\CustomerBooking.sql" />
+    <Build Include="api_customer\Views\Customer.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <None Include="api_customer\Views\ContactInformation.sql" />
+    <None Include="api_customer\Views\CheckCustomerEmail.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </None>
+    <None Include="api_customer\Views\CampaignHistory.sql" />
+    <None Include="api_customer\Views\BookingJourney.sql" />
+    <None Include="api_customer\Views\BeamCustomers.sql" />
+    <Build Include="api_customer\Views\Alerts.sql" />
+    <None Include="api_customer\Views\Address.sql" />
+    <None Include="api_competition\Views\CompetitionQuestion.sql" />
+    <None Include="api_competition\Views\Competition.sql" />
+    <Build Include="Storage\Index.sql" />
+    <Build Include="dbo\Functions\F_IsEmail.sql" />
+    <Build Include="Staging\Functions\VTEC_HASH.sql" />
+    <Build Include="Staging\Functions\ValidateEmail.sql" />
+    <Build Include="Staging\Functions\Text_ProperCase.sql" />
+    <Build Include="Staging\Functions\SplitStringToElements.sql" />
+    <Build Include="Staging\Functions\SetUKTime.sql" />
+    <Build Include="Staging\Functions\RemoveNonAlphaCharacters.sql" />
+    <Build Include="Staging\Functions\removeDupChars.sql" />
+    <Build Include="Staging\Functions\rejectReason.sql" />
+    <Build Include="Staging\Functions\ProfanityCheck.sql" />
+    <Build Include="Staging\Functions\IsUniqueIdentifier.sql" />
+    <Build Include="Staging\Functions\GetUKTime.sql" />
+    <Build Include="Staging\Functions\getFirstInitial.sql" />
+    <Build Include="Staging\Functions\genUniqueKey.sql" />
+    <Build Include="Reference\Functions\CustomerType_GetSubTypeID.sql" />
+    <Build Include="Reference\Functions\Configuration_GetSetting.sql" />
+    <Build Include="Reference\Functions\MSD_GetLookupValue.sql" />
+    <Build Include="Staging\Functions\ValidateMobile.sql" />
+    <Build Include="Staging\Functions\SplitStringToTable.sql" />
+    <Build Include="Reference\Functions\MSD_GetLookupValue_All.sql" />
+    <Build Include="Staging\Functions\SplitString.sql" />
+    <Build Include="Production\Functions\individual_transactions_lxm.sql" />
+    <Build Include="Production\Functions\individual_spend_lxm.sql" />
+    <None Include="Production\Functions\individual_journeys_lxm.sql" />
+    <Build Include="Production\Functions\customer_transactions_lxm.sql" />
+    <Build Include="Production\Functions\customer_spend_lxm.sql" />
+    <None Include="Production\Functions\customer_journeys_lxm.sql" />
+    <Build Include="Staging\Stored Procedures\STG_JA_Create_TouchPoint_Tracking.sql" />
+    <Build Include="Staging\Stored Procedures\STG_JA_Create_ReportTables.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Individual_Add.sql" />
+    <Build Include="Staging\Stored Procedures\STG_IndividualSubscriptionPreference_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_IndividualEmailSubscription_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_IndividualElectronicAddress_Add.sql" />
+    <Build Include="Staging\Stored Procedures\STG_FareAugmentationSegmentation_HotCakes.sql" />
+    <Build Include="Staging\Stored Procedures\STG_FareAugmentationSegmentation_CompetitorBooker.sql" />
+    <Build Include="Staging\Stored Procedures\STG_FareAugmentationSegmentation.sql" />
+    <Build Include="Staging\Stored Procedures\STG_ElectronicAddress_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Train_RSID_Mapping_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_CVIResponseCustomer_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Customer_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Customer_Add.sql" />
+    <Build Include="Staging\Stored Procedures\STG_CustomerSubscriptionPreference_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_CustomerPreference_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_CustomerEmailSubscription_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Collection_RFV_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Collection_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Loyalty_BaseCalculator.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Blacklist_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Batch_Loyalty_Calculator.sql" />
+    <Build Include="Staging\Stored Procedures\STG_AddressUnique_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\Maintenance_STG_SaleTransaction_RemoveDuplicates.sql" />
+    <Build Include="Staging\Stored Procedures\Maintenance_STG_SalesTransaction_Fulfilment.sql" />
+    <Build Include="Reference\Stored Procedures\TOC_Set.sql" />
+    <Build Include="Reference\Stored Procedures\TicketType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\TicketSeasonType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\TicketGroup_Set.sql" />
+    <Build Include="Reference\Stored Procedures\TicketClass_Set.sql" />
+    <Build Include="Reference\Stored Procedures\ModelSegment_Set.sql" />
+    <Build Include="Reference\Stored Procedures\SubscriptionType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\ModelDefinition_Set.sql" />
+    <Build Include="Reference\Stored Procedures\SubscriptionChannelType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\LoyaltyStatus_Set.sql" />
+    <Build Include="Reference\Stored Procedures\LoyaltyProgrammeType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\SegmentTier_Set.sql" />
+    <Build Include="Reference\Stored Procedures\RetailChannel_Set.sql" />
+    <Build Include="Reference\Stored Procedures\ResponseCode_Set.sql" />
+    <Build Include="Reference\Stored Procedures\ResponseCodeType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\LocationAlias_Set.sql" />
+    <Build Include="Reference\Stored Procedures\RailcardType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\InformationSource_Set.sql" />
+    <Build Include="Reference\Stored Procedures\PromotionSegmentDefinition_Set.sql" />
+    <Build Include="Reference\Stored Procedures\IncidentCaseType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\IncidentCaseStatus_Set.sql" />
+    <Build Include="Reference\Stored Procedures\ProductCategory_Set.sql" />
+    <Build Include="Reference\Stored Procedures\IncidentCaseRefundType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\IncidentCaseReason_Set.sql" />
+    <Build Include="Reference\Stored Procedures\FulfilmentMethod_Set.sql" />
+    <Build Include="Reference\Stored Procedures\DataImportType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\Period_Set.sql" />
+    <Build Include="Reference\Stored Procedures\PeriodType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\DataImporDefinition_Set.sql" />
+    <Build Include="Reference\Stored Procedures\CVIQuestion_Set.sql" />
+    <Build Include="Reference\Stored Procedures\CustomerType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\Configuration_Set.sql" />
+    <Build Include="Reference\Stored Procedures\OperationalStatus_Set.sql" />
+    <Build Include="Reference\Stored Procedures\ConfigurationType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\MSD_StringMapBase_Refresh.sql" />
+    <Build Include="Reference\Stored Procedures\ChannelType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\MSD_Product_Insert.sql" />
+    <Build Include="Reference\Stored Procedures\MSD_ProductType_Insert.sql" />
+    <Build Include="Reference\Stored Procedures\AggregationType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\AddressType_Set.sql" />
+    <Build Include="Reference\Stored Procedures\MSD_Entity_Refresh.sql" />
+    <Build Include="Reference\Stored Procedures\TransactionStatus_Set.sql" />
+    <Build Include="Railtimetable\Stored Procedures\Update_Journeys.sql" />
+    <Build Include="Railtimetable\Stored Procedures\Test_Update_Journeys.sql" />
+    <Build Include="Railtimetable\Stored Procedures\Archive_JourneyStages.sql" />
+    <Build Include="Production\Stored Procedures\Individual_RFV_Update_2.sql" />
+    <Build Include="Production\Stored Procedures\Individual_RFV_Update.sql" />
+    <Build Include="Production\Stored Procedures\Individual_Refresh.sql" />
+    <Build Include="Production\Stored Procedures\Individual_Insert.sql" />
+    <Build Include="Production\Stored Procedures\Individual_CustomerType_Update.sql" />
+    <Build Include="Production\Stored Procedures\Customer_RFV_Update.sql" />
+    <Build Include="Production\Stored Procedures\customer_rfv_history_production.sql" />
+    <Build Include="Production\Stored Procedures\Customer_Refresh.sql" />
+    <Build Include="Production\Stored Procedures\Customer_Insert.sql" />
+    <Build Include="Production\Stored Procedures\Customer_Inferred_HomeStation.sql" />
+    <Build Include="Production\Stored Procedures\Customer_CustomerType_Update.sql" />
+    <Build Include="Production\Stored Procedures\Customer_Aggregates.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_SalesTransaction_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_SalesOrderJourney_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_SalesOrderAddress_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_SalesDetail_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_LoyaltyAllocation_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_LoyaltyAccount_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_Journey_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_IncidentCase_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_CVISalesTransaction_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\STG_CustomerLoyaltyAccount_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\CRM_Delta_Initialise.sql" />
+    <Build Include="PreProcessing\Stored Procedures\Check_For_Individual.sql" />
+    <Build Include="PreProcessing\Stored Procedures\Check_For_Customer.sql" />
+    <Build Include="PreProcessing\Stored Procedures\Beam_Customer_Process.sql" />
+    <Build Include="PreProcessing\Stored Procedures\Beam_Customer_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\Beam_Customer_Delete.sql" />
+    <Build Include="Operations\Stored Procedures\TableBackup.sql" />
+    <Build Include="Operations\Stored Procedures\LogTiming_Record.sql" />
+    <Build Include="Operations\Stored Procedures\LogMessage_Record.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Update.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Initialise.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Add_OtherDay.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Add_Other.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Add_Increment.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Add_Grouped.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Add_Contact.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportLog_Add.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportDetail_Update.sql" />
+    <Build Include="Operations\Stored Procedures\CheckTableAndRestoreOnFailure.sql" />
+    <Build Include="api_shared\Stored Procedures\getNewsletterIDs.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="api_shared\Stored Procedures\getIndividualID.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="api_shared\Stored Procedures\getCustomerID.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="api_preferences\Stored Procedures\setPreference.sql" />
+    <Build Include="api_preferences\Stored Procedures\deletePreference.sql" />
+    <Build Include="api_manager\Stored Procedures\updatePreferenceOption.sql" />
+    <Build Include="api_manager\Stored Procedures\setSubscription.sql" />
+    <Build Include="api_manager\Stored Procedures\setPreference.sql" />
+    <Build Include="api_manager\Stored Procedures\setLoyaltyRate.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="api_manager\Stored Procedures\insertPreferenceOption.sql" />
+    <Build Include="api_manager\Stored Procedures\deleteSubscription.sql" />
+    <Build Include="api_manager\Stored Procedures\deletePreference.sql" />
+    <Build Include="api_customer_competition\Stored Procedures\enterToCompetition.sql" />
+    <Build Include="api_customer_competition\Stored Procedures\addCustomerAnswer.sql" />
+    <Build Include="api_customer\Stored Procedures\updateCustomerPreference.sql" />
+    <Build Include="api_customer\Stored Procedures\Subscription_Import.sql" />
+    <Build Include="api_customer\Stored Procedures\setProspectCustomer.sql" />
+    <Build Include="api_customer\Stored Procedures\setCustomersPreference.sql" />
+    <Build Include="api_customer\Stored Procedures\setCustomersPersonalDetails.sql" />
+    <Build Include="api_customer\Stored Procedures\setCustomersContactInfo.sql" />
+    <Build Include="api_customer\Stored Procedures\setCustomersAddress.sql" />
+    <Build Include="api_customer\Stored Procedures\insertCustomerPreference.sql" />
+    <Build Include="api_customer\Stored Procedures\deleteSubscription.sql" />
+    <Build Include="api_customer\Stored Procedures\deleteAlert.sql" />
+    <Build Include="api_customer\Stored Procedures\createRandomCustomer.sql" />
+    <Build Include="api_customer\Stored Procedures\addSubscrition.sql" />
+    <Build Include="api_customer\Stored Procedures\addSubscription.sql" />
+    <None Include="api_customer\Stored Procedures\addAlert.sql" />
+    <None Include="api_competition\Stored Procedures\deleteCompetition.sql" />
+    <None Include="api_competition\Stored Procedures\addQuestionToCompetition.sql" />
+    <None Include="api_competition\Stored Procedures\addCompetition.sql" />
+    <Build Include="Database Triggers\logSchemaChange.sql" />
+    <Build Include="api_manager\User Defined Types\RailCard.sql" />
+    <Build Include="api_manager\User Defined Types\PurchasedProduct.sql" />
+    <Build Include="api_manager\User Defined Types\PaymentUsed.sql" />
+    <Build Include="api_manager\User Defined Types\CustomerSales.sql" />
+    <Build Include="api_manager\User Defined Types\Channel.sql" />
+    <Build Include="api_manager\User Defined Types\AddOn.sql" />
+    <Build Include="Security\Webtrends.sql" />
+    <Build Include="Security\Staging.sql" />
+    <Build Include="Security\Reference.sql" />
+    <Build Include="Security\Railtimetable.sql" />
+    <Build Include="Security\Production.sql" />
+    <Build Include="Security\PreProcessing.sql" />
+    <Build Include="Security\Operations.sql" />
+    <Build Include="Security\Migration.sql" />
+    <Build Include="Security\api_shared.sql" />
+    <Build Include="Security\api_preferences.sql" />
+    <Build Include="Security\api_manager.sql" />
+    <Build Include="Security\api_customer_loyalty.sql" />
+    <Build Include="Security\api_customer_competition.sql" />
+    <Build Include="Security\api_customer.sql" />
+    <None Include="Security\api_competition.sql" />
+    <Build Include="dbo\Tables\MetadataFileSpecification.sql" />
+    <Build Include="dbo\Tables\LkupAuditType.sql" />
+    <Build Include="dbo\Tables\DimTime.sql" />
+    <Build Include="dbo\Tables\DimDate.sql" />
+    <Build Include="dbo\Tables\DimAudit.sql" />
+    <Build Include="dbo\Tables\dbgConfigurationParameters.sql" />
+    <Build Include="dbo\Tables\AuditTableProcessing.sql" />
+    <Build Include="dbo\Tables\AuditPkgExecution.sql" />
+    <Build Include="dbo\Tables\AuditLog.sql" />
+    <Build Include="dbo\Tables\AuditFeedFile.sql" />
+    <Build Include="dbo\Tables\AuditExtract.sql" />
+    <Build Include="dbo\Tables\AuditErrorLog.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISPopulateDimTime.sql" />
+    <Build Include="dbo\Stored Procedures\PopulateDateDimension.sql" />
+    <Build Include="dbo\Views\vwAuditGetFeedFileData.sql" />
+    <Build Include="dbo\Functions\fnGetTableRecordCount.sql" />
+    <Build Include="dbo\Functions\fnGetFileSpecificationKey.sql" />
+    <Build Include="dbo\Functions\fnGetDbgConfigurationValue.sql" />
+    <Build Include="dbo\Stored Procedures\uspUtilityToResetAuditFeedFileRow.sql" />
+    <Build Include="dbo\Stored Procedures\uspUtilityDisableEnableNonClusteredIndexes.sql" />
+    <Build Include="dbo\Stored Procedures\uspUtilityDisableEnableForeignKeys.sql" />
+    <Build Include="dbo\Stored Procedures\uspUpdateConfigurationParameterValue.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISValidationEmailAlert.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISUpdateAuditTables.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISUpdateAuditFeedFile.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISProcStepSuccess.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISProcStepStart.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISProcStepFailed.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISPrepareEnvironment.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISModifyMetadataFileSpecification.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISGetFeedList.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISGetAuditTablesKeys.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISGetAuditFeedFileKey.sql" />
+    <Build Include="dbo\Stored Procedures\uspSourceFileCheck.sql" />
+    <Build Include="dbo\Stored Procedures\uspProcCreateAuditRows.sql" />
+    <Build Include="dbo\Stored Procedures\uspInsertConfigurationParameter.sql" />
+    <Build Include="dbo\Stored Procedures\uspAuditAddLocalAudit.sql" />
+    <Build Include="dbo\Stored Procedures\uspAuditAddAudit.sql" />
+    <Build Include="dbo\Synonyms\uspDisableEnableNonClusteredIndexes.sql" />
+    <Build Include="dbo\Synonyms\synUspAudit.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISPreLoadWrapper.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISPostLoadWrapper.sql" />
+    <Build Include="dat_dtv\Tables\ETLEventHandler.sql" />
+    <Build Include="dat_dtv\Tables\AuditLog.sql" />
+    <Build Include="dat_dtv\Tables\AuditFeedFile.sql" />
+    <Build Include="dat_dtv\Tables\AuditExtractFeedFile.sql" />
+    <Build Include="dat_dtv\Tables\StagingAuditFeedFile.sql" />
+    <Build Include="dbo\Functions\fnCountChar.sql" />
+    <Build Include="dbo\Stored Procedures\uspSSISInsertUpdatePkgExecution.sql" />
+    <Build Include="dbo\Stored Procedures\clrMoveCopyDelete.sql" />
+    <Build Include="dbo\Stored Procedures\clrGetFileInfo.sql" />
+    <Build Include="dbo\Stored Procedures\clrExtractResultSet.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspStartExtractAudit.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspStartAudit.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspUpdateAuditFeedFile.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspUpdateAuditExtractFeedFile.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspUpdateAuditEndTime.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspAddExtractAudit.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspAddAudit.sql" />
+    <Build Include="dat_dtv\Stored Procedures\uspUpdateAuditEndTimeDownload.sql" />
+    <Build Include="Security\dat_dtv.sql" />
+    <Build Include="Reference\Tables\PostCodes.sql" />
+    <Build Include="Reference\Tables\Channel.sql" />
+    <Build Include="Reference\Tables\BulkRanges_Orig.sql" />
+    <Build Include="Reference\Tables\BulkRanges.sql" />
+    <Build Include="Railtimetable\Tables\Cancellation_Reasons.sql" />
+    <Build Include="PreProcessing\Tables\tracking_logs.sql" />
+    <Build Include="PreProcessing\Tables\TOCPLUS_Customer_tmp.sql" />
+    <Build Include="PreProcessing\Tables\TEMP_TOCPLUS_Transaction.sql" />
+    <Build Include="PreProcessing\Tables\Granby_Traveller.sql" />
+    <Build Include="PreProcessing\Tables\extension.sql" />
+    <Build Include="PreProcessing\Tables\delivery.sql" />
+    <Build Include="PreProcessing\Tables\CustomerPIIResponse.sql" />
+    <Build Include="PreProcessing\Tables\broad_log.sql" />
+    <Build Include="dbo\Tables\Vt_DeliverySample180607.sql" />
+    <Build Include="dbo\Tables\Reference.LoyaltyProgrammeType.sql" />
+    <Build Include="dbo\Tables\Reference.FulfilmentMethod.sql" />
+    <Build Include="dbo\Tables\IPW_SendPlan.sql" />
+    <Build Include="dbo\Tables\IPW_SendLog.sql" />
+    <Build Include="Audit\Tables\STG_CustomerPreference.sql" />
+    <None Include="Production\Views\PageviewJourneys.sql" />
+    <None Include="dbo\Views\vw_VTWC_RFV_Dynamic.sql" />
+    <None Include="Staging\Stored Procedures\ValidateMobile.sql" />
+    <Build Include="Staging\Stored Procedures\STG_VAFlyer_Update_Wrapper.sql" />
+    <Build Include="Staging\Stored Procedures\STG_SalesTransaction_Wrapper.sql" />
+    <Build Include="Staging\Stored Procedures\STG_SalesTransaction_VAFlyer_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_SalesTransaction_Nectar_Update.sql" />
+    <Build Include="Staging\Stored Procedures\STG_SalesTransaction_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Nectar_Update_Wrapper.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Load_FulfilmentMethodIds.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Bugle_Events_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Address_Upsert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Address_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\new_validateMobile.sql" />
+    <Build Include="Staging\Stored Procedures\new_validateemail.sql" />
+    <Build Include="Operations\Stored Procedures\GetDataimportdetailID.sql" />
+    <Build Include="Migration\Stored Procedures\Tracking_Logs_Upsert.sql" />
+    <Build Include="Migration\Stored Procedures\Extension_Upsert.sql" />
+    <Build Include="Migration\Stored Procedures\Delivery_Upsert.sql" />
+    <Build Include="Migration\Stored Procedures\Broad_Log_Upsert.sql" />
+    <Build Include="dbo\Stored Procedures\uspRPTDataLoadReport.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetEmailUnsubscribe.sql" />
+    <Build Include="Security\Audit.sql" />
+    <Build Include="Reference\Tables\CVIQuestion.sql" />
+    <Build Include="Staging\Tables\STG_JourneyCVI.sql" />
+    <Build Include="Reference\Tables\CVIStandardAnswer.sql" />
+    <Build Include="Reference\Tables\Preference.sql" />
+    <Build Include="Production\Stored Procedures\Customer_RAG_Update.sql" />
+    <Build Include="PreProcessing\Tables\TOCPlus_ADRCash.sql" />
+    <Build Include="Reference\Tables\AvailabilityCode.sql" />
+    <Build Include="Reference\Tables\ModeOfTransport.sql" />
+    <Build Include="Reference\Tables\Station.sql" />
+    <Build Include="Staging\Tables\STG_ADRCash.sql" />
+    <Build Include="Staging\Tables\STG_Leg.sql" />
+    <Build Include="PreProcessing\Stored Procedures\TOCPlus_Customer_Process.sql" />
+    <Build Include="PreProcessing\Stored Procedures\TOCPlus_Customers.sql" />
+    <Build Include="Reference\Stored Procedures\AvailabilityCode_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\FulfilmentMethod_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\ModeOfTransport_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\Product_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\RailCardType_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\RefundReason_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\RefundType_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\TicketClass_Upsert.sql" />
+    <Build Include="Reference\Stored Procedures\TOC_Upsert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_ADRCash_Insert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Journey_Upsert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_JourneyLeg_Upsert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_Leg_Upsert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_RailRefunds_Upsert.sql" />
+    <Build Include="Staging\Stored Procedures\STG_SalesDetail_Supplement_Upsert.sql" />
+    <Build Include="Operations\Stored Procedures\DataImportDetail_Insert.sql" />
+    <Build Include="PreProcessing\Stored Procedures\TOCPlus_Customer_Email_Parser.sql" />
+    <Build Include="PreProcessing\Stored Procedures\TOCPlus_Customer_Profanity_Update.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assemblies\CLRUtilities.dll" />
+    <None Include="Scripts\Populate_Reference_CVIQuestion.sql" />
+    <None Include="Scripts\Populate_PostCodeLookUp.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CLRUtilities">
+      <HintPath>Assemblies\CLRUtilities.dll</HintPath>
+      <SqlAssemblyName>assemblyCLRUtilities</SqlAssemblyName>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+      <SqlOwnerName>dbo</SqlOwnerName>
+      <SqlPermissionSet>EXTERNAL_ACCESS</SqlPermissionSet>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="CRM.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="HASH">
+      <DefaultValue>ChangeMe</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="8f4b2914-0f17-4770-8f4c-64488e0fc3e7" ChangeDateTime="08/15/2018 14:06:53">
+    <Property Name="ElementName" Value="[Staging].[STG_JourneyCVI].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Staging].[STG_JourneyCVI]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="JourneyId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="39deeb29-c975-4839-a8a8-db92f6a49363" ChangeDateTime="08/15/2018 14:35:01">
+    <Property Name="ElementName" Value="[Reference].[CVIQuestion].[LastUpdatedBy]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Reference].[CVIQuestion]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastModifiedBy" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0ffec03f-930c-4f1b-80d4-d2630afe6d8d" ChangeDateTime="08/15/2018 14:35:13">
+    <Property Name="ElementName" Value="[Reference].[CVIQuestion].[LastUpdatedDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Reference].[CVIQuestion]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastModifiedDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="275bbcbf-8ab0-41c8-aa69-67c0059749a7" ChangeDateTime="08/15/2018 14:35:40">
+    <Property Name="ElementName" Value="[Staging].[STG_JourneyCVI].[LastUpdatedBy]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Staging].[STG_JourneyCVI]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastModifiedBy" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="957eafce-8598-4927-b689-3e0da9533775" ChangeDateTime="08/15/2018 14:35:50">
+    <Property Name="ElementName" Value="[Staging].[STG_JourneyCVI].[LastUpdatedDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Staging].[STG_JourneyCVI]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastModifiedDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3264d237-e9ca-4082-a562-f48554007a6b" ChangeDateTime="08/15/2018 14:37:00">
+    <Property Name="ElementName" Value="[Reference].[CVIQuestion].[QuestionId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Reference].[CVIQuestion]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CVIQuestionID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bfa1be58-ada9-4ee3-b572-6848a8a6946a" ChangeDateTime="09/03/2018 09:55:38">
+    <Property Name="ElementName" Value="[Production].[Production_Customer_RAG_update]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[Production]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[Customer_RAG_update]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5c50054e-9d33-48ae-aab0-b7c99014577b" ChangeDateTime="09/04/2018 15:41:13">
+    <Property Name="ElementName" Value="[Staging].[STG_JourneyCVI].[CVIAnswer]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Staging].[STG_JourneyCVI]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[CVIAnswerID]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="54c1cb7f-f100-42e5-a5c6-11e5b9bf7629" ChangeDateTime="09/05/2018 11:38:53">
+    <Property Name="ElementName" Value="[Staging].[STG_ElectronicAddress].[EncrytpedAddress]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Staging].[STG_ElectronicAddress]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[HashedAddress]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7c1ea7fc-cd5e-4055-9440-b0392ddeb9eb" ChangeDateTime="09/05/2018 12:03:11">
+    <Property Name="ElementName" Value="[Staging].[VTEC_HASH]" />
+    <Property Name="ElementType" Value="SqlScalarFunction" />
+    <Property Name="ParentElementName" Value="[Staging]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[VT_HASH]" />
+  </Operation>
+</Operations>

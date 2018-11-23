@@ -1,0 +1,1385 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/9/2018 11:34:52 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CL-RDSAPP1"
+  DTS:CreatorName="PCLC0\jdiaz"
+  DTS:DTSID="{5BBBEE6D-6A94-47D9-97D4-7A9C74B1C85A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{2366B931-55D3-4C12-A418-D9BA100D653F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFCM JourneyFile Error]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C92B703A-ADE9-4FB3-B1F8-71B527F74223}"
+      DTS:ObjectName="FFCM JourneyFile Error">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::ExpPathErrorFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\aew1vtwcsql92.pclc0.merkle.local\z$\DataError\ERR_20180809_BLK_VT_MKT_20120101_20120131_Journey.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="302"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flat File Source Error Output Column"
+              DTS:DTSID="{857DFD7E-C1AB-4E91-A857-7979038B2DBD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{CC3913D9-6ED9-42BC-9747-7BE021CDD2E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{ACFCA010-9965-4165-925F-F7D694E8DDA6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFCM RailblazersEvolvi]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Railblazers (Evolvi) daily file"
+      DTS:DTSID="{A787E049-4D56-4E23-8B15-5C2E52D8104F}"
+      DTS:ObjectName="FFCM RailblazersEvolvi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\jdiaz\Documents\Sample Files\WestCoast sign up master file 010117 - Present.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Title"
+              DTS:DTSID="{B64C26C0-EDB4-4B17-8D99-7E739081CC04}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{6358D792-8BD7-457C-BF2C-FC86D84DBCAC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Surname"
+              DTS:DTSID="{EB28FFDB-1AE8-4E3C-9FA1-E4D4A31824B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Company"
+              DTS:DTSID="{D53DA34F-D8CE-4A1F-AA45-C78E2F59F6D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressLine1"
+              DTS:DTSID="{790E3009-4A3E-495D-826D-2243B0A4A12F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressLine2"
+              DTS:DTSID="{D3BF822B-C70C-46D9-B8C2-336807876B84}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TownCity"
+              DTS:DTSID="{EEDF91DC-8A41-4982-B8AC-FB2D46B3ED83}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Postcode"
+              DTS:DTSID="{6E8D35B6-AC9D-413D-9E8A-2A44607009FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ContactNumber"
+              DTS:DTSID="{1C7C8FC1-D091-4FD9-9E9A-F7E04498D1A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BusinessSector"
+              DTS:DTSID="{A50E9C98-BFDB-456B-8481-A456D653E902}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BusinessStructure"
+              DTS:DTSID="{1B255A88-D606-4448-85CA-5023CC2F79DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumberOfEmployees"
+              DTS:DTSID="{717200E0-80C9-4866-9E7B-8FCF7DD98EF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{D84AD432-9132-4789-8A90-FCF3FDBAED09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PromoCode"
+              DTS:DTSID="{B25DE7A1-F968-41E3-AD22-47C5AD5C7449}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Coast"
+              DTS:DTSID="{FA0312F5-F108-41C5-B423-89C23F46111B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateReceived"
+              DTS:DTSID="{C62EBDC1-AB23-47BC-A723-B37AFB69C080}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarketingOptIn"
+              DTS:DTSID="{B9E3FD9B-B3EA-449A-A41E-B5794597760A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CreditOptIn"
+              DTS:DTSID="{82DBC624-7BFD-4F99-9437-EAA43407D046}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DFTOptIn"
+              DTS:DTSID="{0627E964-D545-4003-A4F0-9F77E4787E36}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="134"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CreatedDateETL"
+              DTS:DTSID="{242318B6-DD4B-4665-B0A9-C95F0F511F93}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load File To Processing"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3f7e3490-34b4-41ce-8ff4-69ad667811d6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load File To Processing"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load File To Processing\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="2057"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load File To Processing\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FFCM RailblazersEvolvi]"
+                  connectionManagerRefId="Package.ConnectionManagers[FFCM RailblazersEvolvi]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Title]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Surname]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Surname]"
+                      name="Surname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Company]"
+                      name="Company"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AddressLine1]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[AddressLine1]"
+                      name="AddressLine1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AddressLine2]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[AddressLine2]"
+                      name="AddressLine2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[TownCity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TownCity]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[TownCity]"
+                      name="TownCity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Postcode]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Postcode]"
+                      name="Postcode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[ContactNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ContactNumber]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[ContactNumber]"
+                      name="ContactNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[BusinessSector]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BusinessSector]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[BusinessSector]"
+                      name="BusinessSector"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[BusinessStructure]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BusinessStructure]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[BusinessStructure]"
+                      name="BusinessStructure"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[NumberOfEmployees]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NumberOfEmployees]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[NumberOfEmployees]"
+                      name="NumberOfEmployees"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[PromoCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromoCode]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[PromoCode]"
+                      name="PromoCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Coast]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Coast]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Coast]"
+                      name="Coast"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[DateReceived]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateReceived]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[DateReceived]"
+                      name="DateReceived"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[MarketingOptIn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MarketingOptIn]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[MarketingOptIn]"
+                      name="MarketingOptIn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[CreditOptIn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CreditOptIn]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[CreditOptIn]"
+                      name="CreditOptIn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[DFTOptIn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DFTOptIn]"
+                      length="255"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[DFTOptIn]"
+                      name="DFTOptIn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[CreatedDateETL]"
+                      dataType="dbTime"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CreatedDateETL]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[CreatedDateETL]"
+                      name="CreatedDateETL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Company" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TownCity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TownCity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ContactNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ContactNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BusinessSector]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="BusinessSector" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BusinessStructure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="BusinessStructure" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NumberOfEmployees]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NumberOfEmployees" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromoCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PromoCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Coast]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Coast" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateReceived]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DateReceived" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MarketingOptIn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="MarketingOptIn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CreditOptIn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CreditOptIn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DFTOptIn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DFTOptIn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CreatedDateETL]"
+                      dataType="dbTime"
+                      name="CreatedDateETL" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load File To Processing\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[PreProcessing].[Railblazers_Data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load File To Processing\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{1084B2DD-6898-4583-94E8-8A8B611C5447}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CRM_OLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Surname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Surname"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Surname]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Surname]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Company]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Company"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Company]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TownCity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="TownCity"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TownCity]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[TownCity]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Postcode"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Postcode]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContactNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ContactNumber"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactNumber]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[ContactNumber]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BusinessSector]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="BusinessSector"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessSector]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[BusinessSector]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BusinessStructure]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="BusinessStructure"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessStructure]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[BusinessStructure]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumberOfEmployees]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NumberOfEmployees"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfEmployees]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[NumberOfEmployees]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PromoCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PromoCode"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PromoCode]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[PromoCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Coast]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Coast"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Coast]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[Coast]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateReceived]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DateReceived"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateReceived]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[DateReceived]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MarketingOptIn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="MarketingOptIn"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MarketingOptIn]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[MarketingOptIn]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditOptIn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CreditOptIn"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditOptIn]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[CreditOptIn]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DFTOptIn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DFTOptIn"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DFTOptIn]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[DFTOptIn]" />
+                    <inputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDateETL]"
+                      cachedDataType="dbTime"
+                      cachedName="CreatedDateETL"
+                      externalMetadataColumnId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDateETL]"
+                      lineageId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output].Columns[CreatedDateETL]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Company" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TownCity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TownCity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ContactNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessSector]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="BusinessSector" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessStructure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="BusinessStructure" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfEmployees]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NumberOfEmployees" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PromoCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PromoCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Coast]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Coast" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateReceived]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DateReceived" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MarketingOptIn]"
+                      dataType="bool"
+                      name="MarketingOptIn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditOptIn]"
+                      dataType="bool"
+                      name="CreditOptIn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DFTOptIn]"
+                      dataType="bool"
+                      name="DFTOptIn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDateETL]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDateETL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastModifiedDateETL]"
+                      dataType="dbTimeStamp"
+                      name="LastModifiedDateETL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProcessedInd]"
+                      dataType="bool"
+                      name="ProcessedInd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataImportDetailID]"
+                      dataType="i4"
+                      name="DataImportDetailID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load File To Processing\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load File To Processing\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load File To Processing\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load File To Processing\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load File To Processing.Paths[Flat File Source Output]"
+              endId="Package\DFT Load File To Processing\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load File To Processing\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\DFT Load File To Processing"
+          TopLeft="132,100" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load File To Processing">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DFT Load File To Processing\Flat File Source"
+          TopLeft="353.5,18.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT Load File To Processing\OLE DB Destination"
+          TopLeft="379.5,246.5" />
+        <EdgeLayout
+          Id="Package\DFT Load File To Processing.Paths[Flat File Source Output]"
+          TopLeft="429,60.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,186"
+              Start="0,0"
+              End="36,178.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,89"
+                    Point2="0,93"
+                    Point3="4,93" />
+                  <mssgle:LineSegment
+                    End="32,93" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,93"
+                    Point2="36,93"
+                    Point3="36,97" />
+                  <mssgle:LineSegment
+                    End="36,178.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load File To Processing\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

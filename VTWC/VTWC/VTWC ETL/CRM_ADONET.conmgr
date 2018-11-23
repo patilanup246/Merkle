@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="CRM_ADONET"
+  DTS:DTSID="{6CFA7D57-193B-4D61-8702-10CD359D478E}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::PcvDWCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::PcvDWServer]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AEW1VTWCSQL92.pclc0.merkle.local;Initial Catalog=CRM;Integrated Security=True;Application Name=&quot;SSIS-VTWC ETL-{6CFA7D57-193B-4D61-8702-10CD359D478E}AEW1VTWCSQL92.pclc0.merkle.local.CRM&quot;;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

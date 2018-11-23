@@ -1,0 +1,2 @@
+﻿CREATE USER [PCLC0\mlynd] FOR LOGIN [PCLC0\mlynd];
+
