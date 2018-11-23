@@ -1,0 +1,21 @@
+{  
+   "days_ago":{  
+      "N":"1"
+   },
+   "download":{  
+      "L":[  
+         {  
+            "S":"ABI_data/Vt_DeliverySample{YYYYMMDD}.csv"
+         },
+         {  
+            "S":"ABI_data/VT_ExtensionTable_{YYYYMMDD}.csv"
+         },
+         {  
+            "S":"ABI_data/VT_Samplebroadlog_{YYYYMMDD}.csv"
+         },
+         {  
+            "S":"ABI_data/Vt_trackingSamplelogs{YYYYMMDD}.csv"
+         }
+      ]
+   }
+}

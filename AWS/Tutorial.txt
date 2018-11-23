@@ -1,0 +1,56 @@
+AWS CLI S3:
+
+Aws cli s3 has three parts which aws s3 and then commands
+
+mb - make bucket 
+
+aws s3 mb s3://name of the bucket 
+
+rb - remove/delete bucket
+
+aws s3 rb s3://name of the bucket --force
+
+use force if the bucket is not empty 
+
+To list buckets use ls
+
+aws s3 ls
+
+To make folder use mkdir
+
+mkdir dirname  eg: mkdir s3Dotsway 
+
+Create files using touch:
+
+To copy files to s3 
+
+aws s3 cp filename bucket name 
+
+Recursively copy file
+
+aws s3 cp . s3://bucketname --recursive 
+
+List file within s3 bucker
+
+aws s3 ls s3://bucketname
+
+To create grants use acl
+
+aws s3 cp filename s3://bucketname --acl public-read 
+
+To sync files from local folder to s3 use sync
+
+aws s3 sync . s3://bucketname 
+
+To sync and delete missing file use -- delete 
+
+aws s3 sync . s3://bucketname --delete 
+
+To exclude files while sync use exclude command
+
+aws s3 sync . s3://bucketname --delete --exclude filename 
+
+use s3api to get details in JSON format 
+
+
+
