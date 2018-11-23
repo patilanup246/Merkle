@@ -1,0 +1,17 @@
+[?06/?08/?2018 15:07]  Juanjo Diaz:  
+aws lambda invoke 
+--invocation-type RequestResponse 
+--function-name utilities-dev-sftp_file_to_s3 
+--region eu-west-1 
+--log-type Tail 
+--payload file://input.txt  --profile 477453509259 outputfile.txt 
+ 
+
+[?06/?08/?2018 15:07]  Juanjo Diaz:  
+aws lambda invoke --invocation-type RequestResponse --function-name utilities-dev-sftp_file_to_s3 --region eu-west-1 --log-type Tail --payload file://C:/Adobe/Input.txt  --profile 477453509259 outputfile.txt 
+
+aws lambda invoke --invocation-type RequestResponse --function-name utilities-dev-sftp_file_to_s3 --region eu-west-1 --log-type Tail --payload '{"process_name": "Adobe"}'  --profile 477453509259 outputfile.txt 
+
+aws lambda invoke --invocation-type RequestResponse --function-name utilities-dev-sftp_file_to_s3 --region eu-west-1 --log-type Tail --payload '{"process_name": "Adobe"}' --profile 477453509259 outputfile.txt 
+ 
+

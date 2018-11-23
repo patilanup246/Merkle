@@ -1,0 +1,42 @@
+DW Database Server:
+aew1vtwcsql90.pclc0.merkle.local
+
+Development Remote Server:
+cl-rdsapp1.hosting.dbg.internal
+
+aws console link:
+
+https://signon.merkleinc.com/idp/startSSO.ping?PartnerSpId=urn:amazon:webservices 
+
+Teams:
+
+https://teams.microsoft.com/_#/conversations/unknown?threadId=19:6cadd4af6fa047eb8428e26a33c4e387@thread.skype&ctx=channel We saved this conversation. You'll see it soon in the Conversations tab in Skype for Business and in the Conversation History folder in Outlook. 
+
+Resource Login setup:
+
+Login into http://changemypassword.hosting.dbg.internal 
+User:Resource\Dhana.Mani
+Password:P@55word8102 (original)
+Password: 
+
+Resource Login:
+
+Right Click select application to run as different user, use pclco\username and domain password
+
+
+AWS configuration steps:
+
+Install AWS cli and Python.
+
+To setup .aws folder onpy pclc0 and resource account run aws configure
+enter blank for AWS Access Key ID, AWS Secret Access Key, EU-West-1 as default region, Defualt output format as blank.
+
+copy credentials file from python installation folder to the .aws folder 
+run python merkle_aws_soo_auth.py file and it should be run every hour for single sign on
+
+To run cli commands run aws --profile 477453509259 s3 ls, copy the profile number from the credentials file.
+
+C:\Users\aaswal\Merkle Inc\Virgin Trains West Coast - CRM Project - General\Development Documentation\Design Documentation\Staging\TOC+ <file:///C:/Users/aaswal/Merkle%20Inc/Virgin%20Trains%20West%20Coast%20-%20CRM%20Project%20-%20General/Development%20Documentation/Design%20Documentation/Staging/TOC+>  
+
+
+
